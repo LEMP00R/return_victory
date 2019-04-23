@@ -79,8 +79,10 @@ module.exports = {
             chunkFilename: '[id].css'
 		}),
 		new CopyWebpackPlugin([
-			{
-				from: `${PATHS.src}/static/`, to: ''
+			{ 
+				from: `static/**/*`,
+				to: `${PATHS.dist}`,
+				context: `${PATHS.src}`,
 			}
 		]),
 		...hbsPages.map(page => new HandlebarsPlugin({
