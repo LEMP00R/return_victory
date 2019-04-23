@@ -1,0 +1,92 @@
+@function rem($pixels, $context: $main-font-size) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: $font-family;
+        font-weight: $weight;
+        font-style: $style;
+        src: url('#{$file-path}.eot');
+        src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype');
+    }
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+@mixin breakpoint($point) {
+    @if $point == extra-large {
+        @media (max-width: 1700px) {
+            @content;
+        }
+    }
+    @if $point == large {
+        @media (max-width: 1500px) {
+            @content;
+        }
+    } 
+    @else if $point == medium {
+        @media (max-width: 1199px) {
+            @content;
+        }
+    }
+    @else if $point == no-mobile {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }  
+    @else if $point == small {
+        @media (max-width: 991px) {
+            @content;
+        }
+    } 
+    @else if $point == extra-small {
+        @media (max-width: 767px) {
+            @content;
+        }
+    } 
+    @else if $point == small-tablet-portrait {
+        @media (max-width: 600px) {
+            @content;
+        }
+    } 
+    @else if $point == mobile-landscape {
+        @media (max-width: 480px) {
+            @content;
+        }
+    } 
+    @else if $point == mobile {
+        @media (max-width: 380px) {
+            @content;
+        }
+    } 
+}
