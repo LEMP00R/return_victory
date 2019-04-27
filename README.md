@@ -9,6 +9,10 @@ To start the project your system has to fit the following requirements:
 Run following commands to start the development: 
 	
 1. Install dependencies:
+
+	***in git_bash***
+	  npm run install
+	***in git_bash***
 	
 2. Start webpack to build the project and watch for changes in development mode:
 
