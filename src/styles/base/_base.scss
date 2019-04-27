@@ -1,17 +1,25 @@
-@import 'fonts';
 @import 'normalize';
-@import 'typography';
 @import 'variables';
+@import 'fonts';
+@import 'typography';
+@import 'scrollbar';
 
-html {
-	@media screen and (max-width: $desktop-width) {
-		font-size: 16px;
-	}
-	@media screen and (max-width: $laptop-width) {
-		font-size: 15px;
-	}
-	@media screen and (max-width: $mobile-width) {
-		font-size: 14px;
-	}
+html, body {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 100vw;
+	max-width: 1400px;
+	min-width: 320px;
+	height: 100vh;
+	overflow-x: hidden;
+	font-family: $body-font-family;
+	transform: translateX(-50%);
+	color: $main-font-color;
+
+	@include size-responsive($font-base-min, $font-base-max, $breakmin, $breakmax);
 }
+
+
+
 

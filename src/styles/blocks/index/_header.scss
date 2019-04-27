@@ -1,0 +1,38 @@
+.header {
+	display: flex;
+	align-items: center;
+	height: 100px;
+	padding: 30px 10% 0 10%;
+	margin: 0 20px;
+	border-bottom: 1px solid $delimeter-color;
+	user-select: none;
+
+	.logo {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+
+		&__name {
+			font-size: $site-name;
+			font-family: RubikBold, Helvetica, Arial, sans-serif;
+			color: $heading-description-color;
+		}
+
+		&__img {
+			margin-left: 10px;
+		}
+	}
+
+	&__sign_block {
+		display: flex;
+		align-items: center;
+		margin-left: auto;
+	}
+
+	&__sign_up {
+		margin-left: 10px;
+	}
+}
+
+
+

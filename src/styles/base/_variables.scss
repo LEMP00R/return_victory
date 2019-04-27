@@ -1,16 +1,36 @@
 //Font
-$main-font: Helvetica, Arial, sans-serif;
+$body-font-family: Rubik, Helvetica, Arial, sans-serif;
 
 //Size
-$main-font-size: 18px;
+$desktop-font-size: 18px;
+$tablet-font-size: 16px;
+$mobile-font-size: 14px;
 
-$desktop-width: 1280px;
-$laptop-width: 980px;
-$mobile-width: 480px;
+//Site name
+$site-name: 32px;
+
+//Responsable font-size
+$font-base-min: 16px;
+$font-base-max: 2;
+$breakmin: 425px;
+$breakmax: 775;
+
+$screen-xs: 425px;  
+$screen-sm: 576px;  
+$screen-md: 768px;  
+$screen-lg: 992px;  
+$screen-xl: 1200px; 
 
 //Color
-$main-bg-color: red;
-$main-font-color: blue;
-$button-normal-color: #00AD29;
-$button-hover-color: #008B24;
-$button-clicked-color: #00691B;
+$default-color: #fff;
+$bg-color: #eff2ff;
+
+$main-font-color: #8798ad;
+$heading-description-color: #2e384d;
+
+$button-link-icon-color: #2e5bff;
+
+$slide-bg-color: rgba(46, 91, 255, .3);
+$delimeter-color: #dfe7ff;
+
+$footer-bg-color: #d5deff;

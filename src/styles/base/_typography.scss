@@ -3,7 +3,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-
+	@include size-responsive(24px, 18, $breakmin, $breakmax);
 }
 
 h2 {
@@ -27,21 +27,35 @@ h6 {
 }
 
 p {
-
+	
 }
 
 a {
-
+	display: inline-block;
+  	text-decoration: none;
+  	color: $main-font-color;
 }
 
 .button {
-
+	display: inline-block;
+	padding: .5rem 2rem;
+	border: 2px solid $button-link-icon-color;
+	border-radius: 3px;
+	text-decoration: none;
+	background-color: $button-link-icon-color;
+	transition: background-color .3s;
+	color: $default-color;
 }
 
 .button:hover {
-
+	border: 2px solid $button-link-icon-color;
+	background-color: $default-color;
+	color: $button-link-icon-color;
+	cursor: pointer;
 }
 
-.button:active {
-
+.link {
+	&:hover {
+		color: $button-link-icon-color;
+	}
 }
