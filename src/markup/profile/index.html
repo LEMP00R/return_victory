@@ -4,9 +4,104 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Profile</title>
+	<title>Профіль</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	
 </head>
 <body>
-	
+	<header class='header'>
+		<div class='logo'>
+			<div class="logo__name">Quest title</div>
+			<div class="logo__img">
+				<img src="./../../static/icons/logo.png" alt="Square academic cap">
+			</div>
+		</div>
+		<div class="header__sign_block">
+			<span><a class="header__sign_in link" href="#">Увійти</a> або</span>
+			<input class='header__sign_up button' type="button" value="Зареєструватися"/>
+		</div>
+	</header>
+	<div class="content">
+		<nav class="nav" role="navigation">
+		      	<ul>
+				    <li class="nav__item">
+				    	<img class='nav__img nav__img--normal' src="./../../static/icons/home.png" alt="Home page"/>
+				    	<img class='nav__img nav__img--hover' src="./../../static/icons/home_hover.png" alt="Home page"/>
+			      		<a class='nav__link' href="#">Головна</a>
+				    </li>
+				    <li class="nav__item">
+				    	<img class='nav__img nav__img--normal' src="./../../static/icons/map.png" alt="Quest map"/>
+				    	<img class='nav__img nav__img--hover' src="./../../static/icons/map_hover.png" alt="Home page"/>
+			      		<a class='nav__link' href="#">Мапа квесту</a>
+				    </li>
+				    <li class="nav__item">
+						<img class='nav__img nav__img--normal' src="./../../static/icons/faq.png" alt="FAQ"/>
+						<img class='nav__img nav__img--hover' src="./../../static/icons/faq_hover.png" alt="Home page"/>
+			     		<a class='nav__link' href="#">FAQ</a>
+				    </li>
+				    <li class="nav__item">
+				    	<img class='nav__img nav__img--normal' src="./../../static/icons/profile.png" alt="Account"/>
+				    	<img class='nav__img nav__img--hover' src="./../../static/icons/profile_hover.png" alt="Home page"/>
+			      		<a class='nav__link' href="#">Мій профіль</a>
+				    </li>
+		      	</ul>
+	    </nav>
+	    <main class='profile' role='main'>
+	    	<section class="profile__info">
+	    		<h2>Вітаємо, Іванов Іван</h2>
+	    		<form autocomplete="off" id="profile__form" class="profile__form">
+	    			<div class="profile__item profile__birth">
+		              <label for="birth">дата народження</label><br/>
+		              <input type="text" id="birth" placeholder="05/02/1997" />
+		            </div>
+		            <div class="profile__item profile__email">
+		              <label for="email">електронна пошта</label><br/>
+		              <input type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$ spellcheck="false" placeholder="chmu@gmail.com" />
+		            </div>
+		            <div class="profile__item profile__email">
+		              <label for="email">електронна пошта</label><br/>
+		              <input type="text" id="email" spellcheck="false" placeholder="chmu@gmail.com"/>
+		            </div>
+		            <div class="profile__item profile__submit">
+		              <input type="submit" value="Зберегти зміни" id="save-profile-changes" class=" button" />
+		            </div>
+		        </form>
+		        <div class="profile__quest_progress">
+					<div class="graph-container">
+						<svg id="my-svg" width="200px" height="200px">
+						</svg>
+						<span class="percent-text">67%</span>
+					</div>
+		        </div>
+	    	</section>
+	    	<section class="cv">
+	    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur sit quaerat quam impedit maxime repellendus molestiae ullam facilis qui iusto doloremque mollitia esse soluta, placeat perspiciatis, quo temporibus sapiente itaque.
+	    		</p>
+	    		<div class="cv__submit">
+		            <input type="submit" value="Завантажити резюме" id="download-cv" class=" button"/>
+		        </div>
+	    	</section>
+	    	<section class="help">
+	    		<h2>Маєте питання?</h2>
+	    		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus corporis repellendus natus, ut deserunt rerum omnis, veritatis cum, sit, possimus totam nam expedita eaque sed quia inventore similique aspernatur explicabo.</p>
+	    		<textarea name="" id="" cols="60" rows="10"></textarea>
+	    		<div class="help__submit">
+		            <input type="submit" value="Відправити" id="help-send-msg" class=" button"/>
+		        </div>
+	    	</section>
+	    </main>
+	    <section class="favorite">
+	    	<h2>Вподобані рівні та лекції</h2>
+	    	<a href=""><i class="far fa-heart"></i>Лекція. Механізми інтерфейсів в Java</a>
+	    	<a href=""><i class="far fa-heart"></i>Лекція. Механізми інтерфейсів в Java</a>
+	    	<a href=""><i class="far fa-heart"></i>Лекція. Механізми інтерфейсів в Java</a>
+	    	<a href=""><i class="far fa-heart"></i>Лекція. Механізми інтерфейсів в Java</a>
+	    	<a href=""><i class="far fa-heart"></i>Лекція. Механізми інтерфейсів в Java</a>
+	    </section>
+	</div>
+	<footer class="footer">
+		<a href="link">Поділитися квестом з друзями</a>
+	</footer>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js'></script>
 </body>
 </html>

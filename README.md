@@ -11,7 +11,7 @@ Run following commands to start the development:
 1. Install dependencies:
 
 	***in git_bash***
-	  npm run install
+	  npm install
 	***in git_bash***
 	
 2. Start webpack to build the project and watch for changes in development mode:

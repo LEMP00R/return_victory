@@ -1,2 +1,2 @@
 import './styles/main.scss';
-import './js/index';
+import './js/profile/percentage';

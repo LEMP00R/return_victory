@@ -2,8 +2,8 @@
   display: flex;
 
   .nav {
-    width: 400px;
-    height: 100%;
+    position: fixed;
+    width: 200px;
     padding-left: 20px;
     user-select: none;
     box-sizing: border-box;

@@ -1,0 +1,78 @@
+.profile {
+  width: 50%;
+  margin-left: 200px;
+  padding: 50px 30px;
+  border-left: 1px solid $delimeter-color;
+  border-right: 1px solid $delimeter-color;
+
+  [type=text],
+  [type='email'] {
+    border: none;
+    outline: none;
+  }
+
+  label {
+    font-variant: small-caps;
+    font-family: 'RubikBold';
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr, 1fr);
+    grid-template-rows: repeat(2, 1fr, 3fr);
+    padding-bottom: 50px;
+    border-bottom: 1px solid $delimeter-color;
+  }
+
+  &__form {
+    grid-column: 1;
+    grid-row: 2 / 3;
+  }
+
+  &__quest_progress {
+    text-align: center;
+    align-self: center;
+    grid-column: 2;
+    grid-row: span 2;
+  }
+
+  &__item {
+    padding: 10px;
+  }
+}
+.graph-container {
+  width: 200px;
+  position: relative;
+
+  .percent-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 42px;
+  }
+}
+
+.cv {
+  margin: 50px 0;
+}
+
+.help {
+  padding: 50px 0 0 0;
+  border-top: 1px solid $delimeter-color;
+
+  &__submit {
+    margin-top: 30px;
+  }
+}
+
+.favorite {
+  padding: 50px 30px;
+  a {
+    padding: 10px 0 10px 20px;
+  }
+  i {
+    color: #fdbd00;
+    margin-right: 10px;
+  }
+}

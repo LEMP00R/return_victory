@@ -9,26 +9,27 @@
 </head>
 <body>
 	<main class='main_reg_log'>
-        <div class="reg">
-          <h2 class="reg__title">Вхід в систему</h2>
-          <form id="reg__form" class="reg__form">
-            <div class="reg__item reg__email">
+        <div class="log">
+          <h2 class="log__title">Вхід в систему</h2>
+          <form id="log__form" class="log__form">
+            <div class="log__item log__email">
               <label for="email">електронна пошта</label><br/>
-              <input type="text" id="email" class='' spellcheck="false"/>
+              <input type="text" id="email" spellcheck="false"/>
             </div>
-            <div class="reg__item">
+            <div class="log__item log__password">
               <label for="password">пароль</label><br/>
               <input type="password" id="password" />
             </div>
-            <div class="reg__item reg__submit">
-              <input type="submit" value="Увійти в систему" id="create-account" class=" button"/><br/>
+            <div class="log__item log__submit">
+              <input type="submit" value="Увійти в систему" id="enter-account" class=" button"/>
             </div>
           </form>
-          <div class="reg__sign_in">Ще не зареєстровані? <a class="reg__sign_in link" href="#">Зареєструватися</a></div>
+          <br/>
+          <div class="log__sign_up">Ще не зареєстровані? <a class="log__sign_up link" href="#">Зареєструватися</a></div>
           <div class="connect">
             <div class="socials">
-			  <div class="socials__title">Авторизація через соцмережі</div>
-			  <div class="socials_items">
+      			  <div class="socials__title">Авторизація через соцмережі</div>
+      			  <div class="socials_items">
 	              <a href="#" class="socials__item">
 	                  <i class="fab fa-twitter"></i>
 	              </a>
