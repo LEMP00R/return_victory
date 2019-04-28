@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Тестування</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"/>
+</head>
+<body>
+	<header class='header'>
+		<div class='logo'>
+			<div class="logo__name">Quest title</div>
+			<div class="logo__img">
+				<img src="./../../static/icons/logo.png" alt="Square academic cap">
+			</div>
+		</div>
+		<div class="header__sign_block">
+			<span><a class="header__sign_in link" href="#">Увійти</a> або</span>
+			<input class='header__sign_up button' type="button" value="Зареєструватися"/>
+		</div>
+	</header>
+	<div class="content">
+		<nav class="nav" role="navigation">
+		      	<ul>
+				    <li class="nav__item">
+				    	<img class='nav__img nav__img--normal' src="./../../static/icons/home.png" alt="Home page"/>
+				    	<img class='nav__img nav__img--hover' src="./../../static/icons/home_hover.png" alt="Home page"/>
+			      		<a class='nav__link' href="../index.html">Головна</a>
+				    </li>
+				    <li class="nav__item">
+				    	<img class='nav__img nav__img--normal' src="./../../static/icons/map.png" alt="Quest map"/>
+				    	<img class='nav__img nav__img--hover' src="./../../static/icons/map_hover.png" alt="Home page"/>
+			      		<a class='nav__link' href="../map/index.html">Мапа квесту</a>
+				    </li>
+				    <li class="nav__item">
+						<img class='nav__img nav__img--normal' src="./../../static/icons/faq.png" alt="FAQ"/>
+						<img class='nav__img nav__img--hover' src="./../../static/icons/faq_hover.png" alt="Home page"/>
+			     		<a class='nav__link' href="../faq/index.html">FAQ</a>
+				    </li>
+				    <li class="nav__item">
+				    	<img class='nav__img nav__img--normal' src="./../../static/icons/profile.png" alt="Account"/>
+				    	<img class='nav__img nav__img--hover' src="./../../static/icons/profile_hover.png" alt="Home page"/>
+			      		<a class='nav__link' href="../profile/index.html">Мій профіль</a>
+				    </li>
+		      	</ul>
+	    </nav>
+	    <main class='test'>
+	    	<div id="test__progress">
+			  <div id="test__bar"></div>
+			</div>
+			<form action="">
+	    		<h2>У якій сфері ви хотіли би працювати?</h2>
+	    		<div class="container">
+	    			<div class="checkboxes">
+					  <div class="check">
+					    <input id="check" type="checkbox"/>
+					    <label for="check">
+					      <div class="box">
+					      	<i class="fa fa-check"></i>
+					      </div>
+					      Програмування та розробка програм різних галузей
+					    </label>
+					  </div>
+					  <div class="check">
+					    <input id="check1" type="checkbox"/>
+					    <label for="check1">
+					      <div class="box">
+					      	<i class="fa fa-check"></i>
+					      </div>
+					      Програмування та розробка програм різних галузей
+					    </label>
+					  </div>
+					  <div class="check">
+					    <input id="check2" type="checkbox"/>
+					    <label for="check2">
+					      <div class="box">
+					      	<i class="fa fa-check"></i>
+					      </div>
+					      Програмування та розробка програм різних галузей
+					    </label>
+					  </div>
+					  <div class="check">
+					    <input id="check3" type="checkbox"/>
+					    <label for="check3">
+					      <div class="box">
+					      	<i class="fa fa-check"></i>
+					      </div>
+					      Програмування та розробка програм різних галузей
+					    </label>
+					  </div>
+				  </div>
+				</div>
+				<div class="test__submit">
+              		<input type="submit" value="Далі" id="nex-question" class=" button"/>
+            	</div>
+	    	</form>
+	    </main>
+	</div>
+	<footer class="footer">
+		<a href="link">Поділитися квестом з друзями</a>
+	</footer>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js'></script>
+</body>
+</html>

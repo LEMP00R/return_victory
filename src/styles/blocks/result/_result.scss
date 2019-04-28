@@ -1,0 +1,33 @@
+.content {
+
+	.result {
+		margin-left: 200px;
+		padding: 200px 50px;
+		border-left: 1px solid $delimeter-color;
+
+		.link {
+			color: $button-link-icon-color;
+		}
+
+		&__professions {
+			background-color: $bg-color;
+			color: $button-link-icon-color;
+
+			&:focus, 
+			&:active {
+				outline: none;
+			}
+
+			option {
+				border: none;
+				outline: none;
+				color: $button-link-icon-color;
+			}
+			
+		}
+
+		&__submit {
+			margin-top: 50px;
+		}
+	}
+}

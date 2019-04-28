@@ -9,7 +9,10 @@ const PATHS = {
 	dist: path.resolve(__dirname, '../dist')
 }
 
-const htmlPages = fs.readdirSync(path.resolve(PATHS.src, 'markup/')).filter(item => !item.includes('.'));
+const pages = fs.readdirSync(path.resolve(PATHS.src, 'markup/')).filter(item => !item.includes('.'));
+const files = pages.map(page => {
+	return fs.readdirSync(path.resolve(PATHS.src, `markup/${page}`));
+});
 
 module.exports = {
 	externals: {
@@ -60,7 +63,7 @@ module.exports = {
       		filename: 'index.html',
       		template: `${PATHS.src}/markup/index.html`
 		}),
-		...htmlPages.map(page => new HtmlWebpackPlugin({
+		...pages.map(page => new HtmlWebpackPlugin({
       		filename: `${page}/index.html`,
       		template: `${PATHS.src}/markup/${page}/index.html`
 		}))
