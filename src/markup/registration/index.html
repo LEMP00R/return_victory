@@ -11,20 +11,20 @@
 	<main class='main_reg_log'>
         <div class="reg">
           <h2 class="reg__title">Реєстрація</h2>
-          <form id="reg__form" class="reg__form">
+          <form id="reg__form" class="reg__form" action="../../../backend/registrationFunc.php" method="post">
           	<div class="reg__item">
               <label for="surname">прізвище</label><br/>
-              <input type="text" id="surname" spellcheck="false"/>
+              <input name="surname" type="text" id="surname" spellcheck="false"/>
             </div>
             <div class="reg__item">
               <label for="name">ім'я</label><br/>
-              <input type="text" id="name" spellcheck="false"/>
+              <input name="name" type="text" id="name" spellcheck="false"/>
             </div>
             <div class="reg__item reg__birth">
               <label>дата народження <i class="far fa-question-circle"></i></label><br/>
-              <input type="text" id="birth_date" spellcheck="false"/>
-              <input type="text" id="birth_month" spellcheck="false"/>
-              <input type="text" id="birth_year" spellcheck="false"/>
+              <input name="birth_date" type="text" id="birth_date" spellcheck="false"/>
+              <input name="birth_month" type="text" id="birth_month" spellcheck="false"/>
+              <input name="birth_year" type="text" id="birth_year" spellcheck="false"/>
             </div>
             <div class="reg__item ">
               <label>стать</label><br/>
@@ -35,15 +35,15 @@
             </div>
             <div class="reg__item reg__email">
               <label for="email">електронна пошта</label><br/>
-              <input type="text" id="email" class='' spellcheck="false"/>
+              <input name="email" type="text" id="email" class='' spellcheck="false"/>
             </div>
             <div class="reg__item">
               <label for="password">пароль</label><br/>
-              <input type="password" id="password" />
+              <input name="password" type="password" id="password" />
             </div>
             <div class="reg__item">
               <label for="password-again">повторіть пароль</label><br/>
-              <input type="password" id="password-again" />
+              <input name="passwordAgain" type="password" id="password-again" />
             </div>
             <div class="reg__item reg__submit">
               <input type="submit" value="Зареєструватися" id="create-account" class=" button"/><br/>
