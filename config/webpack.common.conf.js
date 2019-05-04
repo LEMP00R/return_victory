@@ -25,7 +25,11 @@ module.exports = {
     	extensions: ['.scss', '.js', '.json']
   	},
     optimization: {
-        minimizer: [new UglifyJsWebpackPlugin()]
+        minimizer: [
+            new UglifyJsWebpackPlugin({
+                parallel: true
+            })
+        ]
     },
     module: {
         rules: [

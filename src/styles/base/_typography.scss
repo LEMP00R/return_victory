@@ -1,15 +1,9 @@
 h1 {
-	@include size-responsive(24px, 18, $breakmin, $breakmax);
+	@include size-responsive(36px, 18, $breakmin, $breakmax);
 }
 
 h2 {
-	font-family: RubikBold;
-	color: $mark-color;
 	@include size-responsive(20px, 10, $breakmin, $breakmax);
-}
-
-a {
-	text-decoration: none;
 }
 
 label {
@@ -21,9 +15,11 @@ label {
 input {
 	border: none;
 	outline: none;
+
 }
 
 select {
 	outline: none;
 	padding: 5px;
 }
+

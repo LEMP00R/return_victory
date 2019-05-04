@@ -37,7 +37,7 @@ export const FAQTemplate = `
 	</section>
 	<section class="ask-question">
 	   	<h2 class="ask-question__heading">Залишились питання?</h2>
-	   	<p class="ask-question__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus corporis repellendus natus, ut deserunt rerum omnis, veritatis cum, sit, possimus totam nam expedita eaque sed quia inventore similique aspernatur explicabo.</p>
+	   	<p class="ask-question__text">Не знайшли відповіді на потрібне питання? Хочете залишити відгук чи зв’язатися з адміністратором? Залиште своє повідомлення у формі нижче, і ми зв’яжемося з вами якнайшвидше.</p>
 	   	<textarea class="ask-question__textarea" name="" id="" cols="60" rows="10"></textarea>
 	   	<div class="ask-question__submit">
 		    <input type="submit" value="Відправити" id="help-send-msg" class="button"/>

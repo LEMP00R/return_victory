@@ -38,7 +38,7 @@ export const ProfileTemplate = `
 	</section>
 	<section class="ask-question">
 	    <h2 class="ask-question__heading">Маєте питання?</h2>
-	    <p class="ask-question__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus corporis repellendus natus, ut deserunt rerum omnis, veritatis cum, sit, possimus totam nam expedita eaque sed quia inventore similique aspernatur explicabo.</p>
+	    <p class="ask-question__text">Не знайшли відповіді на потрібне питання? Хочете залишити відгук чи зв’язатися з адміністратором? Залиште своє повідомлення у формі нижче, і ми зв’яжемося з вами якнайшвидше.</p>
 	    <textarea class="ask-question__textarea" name="" id="" cols="60" rows="10"></textarea>
 	    <div class="ask-question__submit">
 		    <input type="submit" value="Відправити" id="help-send-msg" class="button"/>
@@ -46,11 +46,11 @@ export const ProfileTemplate = `
 	</section>
 	<section class="my-favorite">
 	    <h2>Вподобані рівні та лекції</h2>
-	    <a href="" class="my-favorite__link">Лекція. Механізми інтерфейсів в Java</a>
-	    <a href="" class="my-favorite__link">Лекція. Механізми інтерфейсів в Java</a>
-	    <a href="" class="my-favorite__link">Лекція. Механізми інтерфейсів в Java</a>
-	    <a href="" class="my-favorite__link">Лекція. Механізми інтерфейсів в Java</a>
-	    <a href="" class="my-favorite__link">Лекція. Механізми інтерфейсів в Java</a>
+		<i class="fas fa-heart"></i><a href="" class="my-favorite__link">Лекція. Механізм інтерфейсів в Java</a>
+	    <i class="fas fa-heart"></i><a href="" class="my-favorite__link">Перший етап. Знайомство зі спеціальністю</a>
+	    <i class="fas fa-heart"></i><a href="" class="my-favorite__link">Лекція. Основні функціональні інтерфейси
+та їх використання. Типові операції з потоками</a>
+	    <i class="fas fa-heart"></i><a href="" class="my-favorite__link">Третій етап. Варіанти працевлаштування</a>
 	</section>
 `;
 

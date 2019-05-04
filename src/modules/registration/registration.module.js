@@ -1,6 +1,7 @@
 import '../../styles/sections/registration/registration.scss'
 
 import(/* webpackChunkName: "swap-to-login-form" */ '../../js/registration/swap.js') 
+import(/* webpackChunkName: "ajax" */ '../../js/registration/ajax.js')
 	
 import { RegistrationTemplate } from './registration.template'
 

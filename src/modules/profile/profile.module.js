@@ -1,5 +1,5 @@
 import '../../styles/sections/profile/profile.scss'
-import(/* webpackChunkName: "quest-progress" */'../../js/profile/profile')
+import(/* webpackChunkName: "quest-progress" */'../../js/profile/progress')
 
 import { ProfileTemplate } from './profile.template'
 

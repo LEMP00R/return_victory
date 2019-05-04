@@ -1,5 +1,5 @@
 import '../../styles/sections/faq/faq.scss' 
-import(/* webpackChunkName: "question-answer-accordion" */ '../../js/faq/faq.js')
+import(/* webpackChunkName: "question-answer-accordion" */ '../../js/faq/faq-accordion')
 
 import { FAQTemplate } from './FAQ.template'
 

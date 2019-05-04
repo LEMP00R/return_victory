@@ -16,14 +16,12 @@ const Main = {
         }, {})
 
         this.initDefaultValues()
-        this.initServiceWorker()
         this.initEvents()
     },
     initDefaultValues() {
         this.currentMenuItem = this.menuListItems[0]
         this.currentPage = this.pages[0]
         this.currentMenuItem.classList.add('navbar__list-item--selected')
-        this.currentPage.classList.add('page--slide-in')
 
         this.showView()
     },
@@ -38,7 +36,6 @@ const Main = {
                 this.toggleClass(this.currentMenuItem, 'navbar__list-item--selected', this.menuListItems)
                 let currentPageData = target.dataset.target
                 this.currentPage = this.pageComponents[currentPageData]
-                this.toggleClass(this.currentPage, 'page--slide-in', this.pages)
                 this.hide(this.currentPage, 'hide', this.pages)
 
             } else if ("IMG" === target.tagName || "SPAN" === target.tagName) {
@@ -48,7 +45,6 @@ const Main = {
                 this.toggleClass(this.currentMenuItem, 'navbar__list-item--selected', this.menuListItems)
                 let currentPageData = target.parentElement.dataset.target
                 this.currentPage = this.pageComponents[currentPageData]
-                this.toggleClass(this.currentPage, 'page--slide-in', this.pages)
                 this.hide(this.currentPage, 'hide', this.pages)
 
             } else {
@@ -97,6 +93,7 @@ const Main = {
                 .catch(error => 'Error while loading LectionsModule') : false
     },
     toggleClass(target, className, arr) {
+        target.classList.add(className)
         arr.filter(item => item !== target).map(item => item.classList.remove(className))
     },
     fadeOut(target, arr) {
@@ -122,7 +119,7 @@ const Main = {
     }
 }
 
-export const Login = {
+const Login = {
     init() {
         this.elements = Array.from(document.querySelectorAll('[data-target="sign-in"]'))
         this.content = [
@@ -166,7 +163,7 @@ export const Login = {
     }
 }
 
-export const Registration = {
+const Registration = {
     init() {
         this.elements = Array.from(document.querySelectorAll('[data-target="sign-up"]'))
         this.content = [
@@ -209,7 +206,6 @@ export const Registration = {
         target.classList.remove(className)
     }
 }
-
 
 Main.init()
 Login.init()

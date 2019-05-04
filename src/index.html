@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="Author: return_victory;, Length: 1 page">
+    <meta name="description" content="Author: return_victory;, Length: 1 page">
     <title>Моя майбутня професія</title>
     <link rel="manifest" href="/manifest.json">
 	<meta name="msapplication-config" content="/browserconfig.xml" />
@@ -61,6 +61,7 @@
     		display: grid;
     		grid-template-columns: 140px auto;
 			width: 100%;
+			height: 100%;
 			max-width: 1400px;
 			margin: 0;
 			padding: 0;
@@ -80,7 +81,12 @@
 		h1, h2, h3, h4, h5, h6, h7 {
 			margin: 0;
 			padding: 0;
+			font-family: 'RubikBold', Helvetica, Arial, sans-serif;
 			color: #2e384d;
+		}
+
+		a {
+			text-decoration: none;
 		}
 
 		::-webkit-scrollbar {
@@ -105,17 +111,17 @@
 			padding: 70px;
         }
 
+        .home>section:not(:last-child) {
+        	margin-bottom: 70px;
+        }
+
         .hide {
         	display: none !important;
         }
 
-		.page--slide-in {
-			display: block;
+		.show {
+			display: block !important;
 		}
-
-        .home>section:not(:last-child) {
-        	margin-bottom: 70px;
-        }
 
         .sign-block>span {
 			margin: 0 10px;
@@ -124,9 +130,14 @@
 		.link {
 			font-size: 18px;
 			color: #2e384d;
+			cursor: pointer;
 		}
 
 		.link:hover {
+			color: #2e5bff;
+		}
+
+		.link--active {
 			color: #2e5bff;
 			cursor: pointer;
 		}
@@ -138,7 +149,7 @@
 			border-radius: 3px;
 			padding: 10px 0;
 			background-color: #2e5bff;
-			font-family: RubikBold;
+			font-family: RubikBold, Helvetica, Arial, sans-serif;
 			font-size: 18px;
 			text-align: center;
 			color: #fff;
@@ -146,11 +157,19 @@
 		}
 
 		@keyframes bounce { 
-            0%, 20%, 50%, 100% {transform: translateX(0);} 
-            40% {transform: translateX(-160px);} 
-            60% {transform: translateX(-90px);} 
-			80% {transform: translateX(-2px);}
-         }
+            0%, 20%, 50%, 100% {
+            	transform: translateX(0);
+            } 
+            40% {
+            	transform: translateX(-160px);
+            } 
+            60% {
+            	transform: translateX(-90px);
+            } 
+			80% {
+				transform: translateX(-2px);
+			}
+        }
 		
 		/*header top*/
 		.banner {
@@ -170,7 +189,7 @@
 		}
 
 		.banner__name {
-			font-family: RubikBold;
+			font-family: RubikBold, Helvetica, Arial, sans-serif;
 			font-size: 32px;
 			color: #2e384d;
 		}
@@ -288,8 +307,6 @@
 
 		.intro__heading {
 			position: relative;
-			font-size: 64px;
-			color: #2e384d;
 		}
 
 		.intro__heading:before {
@@ -305,11 +322,6 @@
 		.intro__text {
 			padding: 30px;
 			padding-left: 0;
-		}
-
-		.link--active {
-			color: #2e5bff;
-			cursor: pointer;
 		}
 
 		.intro__img {
@@ -357,6 +369,7 @@
 			object-fit: contain;
 		}
 
+		
 		/*section quest-map*/
 		.quest-map {
 			padding-top: 20px;
@@ -376,7 +389,7 @@
 
 		.lets-start__text {
 			width: 70%;
-			padding: 10px 0 10px 0;
+			padding: 10px 0;
 			text-align: center;
 		}
 
@@ -386,7 +399,7 @@
 		}
 
 		.sign-block--bottom>span {
-			margin-top: 20px;
+			padding-top: 10px;
 		}
 
 		/*footer*/
@@ -397,18 +410,22 @@
 			grid-template-columns: repeat(3, 1fr);
 			width: 100%;
 			height: 50px;
-			padding: 0 140px;
+			padding: 0 70px 0 140px;
 			background-color: #d5deff;
 		}
 
-		.site-footer>span:nth-child(2) {
+		.site-footer__socials-items {
 			display: flex;
 			justify-content: center;
+			margin-left: 70px;
 		}
 
-		.site-footer>span:nth-child(3) {
-			display: flex;
-			justify-content: flex-end;
+		.site-footer__socials-item {
+			margin: 0 10px;
+		}
+
+		.site-footer__author {
+			margin-left: auto;
 		}
     </style>
 </head>
@@ -517,7 +534,10 @@
 					</p>
 					<div class="sign-block sign-block--bottom">
 						<input data-target="sign-up" class='button' type="button" value="Зареєструватися"/>
-						<span>Вже зареєстровані? <span data-target="sign-in" class="link--active">Увійти</span></span>
+						<span>Вже зареєстровані? 
+							<span data-target="sign-in" class="link--active">Увійти
+							</span>
+						</span>
 					</div>
 				</section>
 			</section>
@@ -529,11 +549,11 @@
 	</main>
 	<footer class="site-footer">
 		<span class="link--active">Поділитися квестом з друзями</span>
-		<span>
-			<a href="" class="link"><i class="fab fa-google"></i></a>
-			<a href="" class="link"><i class="fab fa-facebook-f"></i></a>
+		<span class="site-footer__socials-items">
+			<a href="https://www.google.com.ua" class="site-footer__socials-item link"><i class="fab fa-google"></i></a>
+			<a href="https://uk-ua.facebook.com" class="site-footer__socials-item link"><i class="fab fa-facebook-f"></i></a>
 		</span>
-		<span>@2019 return_victory;</span>
+		<span class="site-footer__author">@2019 return_victory;</span>
 	</footer>
 	<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
 		<script async src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
