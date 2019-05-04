@@ -2,7 +2,7 @@ export const RegistrationTemplate = `
   <div class="registration">
     <div class="registration__wrapper">
       <h2 class="registration__title">Реєстрація</h2>
-      <form id="registration__form" class="registration__form" action="backend/registrationFunc.php" method="post">
+      <form id="registration__form" class="registration__form">
         <div class="registration__item registration__surname">
           <label for="registration-surname">прізвище</label><br/>
           <input type="text" id="registration-surname" class="registration__input" name="registration-surname" required />
