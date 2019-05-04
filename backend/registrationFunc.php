@@ -9,8 +9,8 @@ if (isset($_POST["birth_date"]) && isset($_POST["birth_month"]) && isset($_POST[
 if (isset($_POST["registration-email"])) {$email = $_POST["registration-email"];} else {$email = "";}
 if (isset($_POST["registration-repeat-password"])) {$passwordAgain = $_POST["registration-repeat-password"];} else {$passwordAgain = "";}
 
-$query = "INSERT INTO `Users`(`email`, `password`, `name`, `surname`, `sex`, `date`) VALUES ('$email','$password','$name','$surname','Male','$date')";
-
-$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
-
+if ($password == $passwordAgain) {
+    $query = "INSERT INTO `Users`(`email`, `password`, `name`, `surname`, `sex`, `date`) VALUES ('$email','$password','$name','$surname','Male','$date')";
+    $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+}
 ?>
