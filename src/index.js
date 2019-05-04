@@ -16,6 +16,7 @@ const Main = {
         }, {})
 
         this.initDefaultValues()
+        this.initServiceWorker()
         this.initEvents()
     },
     initDefaultValues() {
