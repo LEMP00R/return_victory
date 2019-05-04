@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --watch --mode development --config ./config/webpack.dev.conf.js",
-    "build": "webpack --mode production --config ./config/webpack.build.conf.js && node build-sw.js && cscript.exe main.js"
+    "build": "webpack --mode production --config ./config/webpack.build.conf.js && node build-sw.js"
   },
   "browserslist": [
     "> 1%",
