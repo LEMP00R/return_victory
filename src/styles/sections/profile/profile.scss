@@ -1,0 +1,14 @@
+@import '../../common';
+
+@import 'edit-profile';
+@import 'CV';
+@import 'ask-question';
+@import 'my-favorite';
+
+.profile {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: auto auto auto;
+	grid-column-gap: $gap-width;
+	grid-row-gap: $gap-width;
+}

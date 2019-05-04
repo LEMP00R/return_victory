@@ -1,0 +1,51 @@
+@import '../../common';
+
+@import './ask-question';
+
+.FAQ {
+	margin-bottom: $gap-width;
+
+	&__item {
+		border: 1px solid $bg-color;
+		margin: 20px 0;
+	}
+
+	&__question {
+		display: flex;
+		align-items: center;
+		background-color: $bg-color;
+		padding: 0 20px;
+		color: $mark-color;
+		cursor: pointer;
+
+		&:after {
+			content: '+'; 
+			font-size: 24px;
+			color: $mark-color;
+			font-family: 'RubikBold';
+			margin-left: auto;
+		}
+
+		&.active:after {
+			content: "-"; 
+			font-size: 24px;
+			color: $mark-color;
+			font-family: 'RubikBold';
+			margin-left: auto;
+		}
+	}
+
+	&__answer {
+		background-color: white;
+		max-height: 0;
+		overflow: hidden;
+		opacity: 0;
+		color: $mark-color;
+
+		&.show {
+		    opacity: 1;
+		    max-height: 500px; 
+		    padding: 20px;
+		}
+	}
+}

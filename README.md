@@ -29,32 +29,45 @@ Run following commands to start the development:
 The project structure:
 
 ```
-+-- dist/ # Builded project directory
-¦    +-- css/
-¦    ¦    +-- **/*.scss
-¦    +-- js/
-¦    ¦    +-- **/*.scss
-¦    +-- static/
-¦    ¦    +-- fonts/
-¦    ¦    +-- images/
-¦    ¦    +-- icons/
-¦    +-- **/*.html    
-¦    +-- index.html # Main entry point
-+-- src/ # Development project directory
-¦    +-- markup/
-¦    ¦    +-- **/*.html # All your html goes here
-¦    ¦    +-- index.html 
-¦    +-- styles/ # All of yours scss goes here
-¦    ¦    +-- **/*.scss
-¦    +-- js/ # All of yours bundled js goes here
-¦    ¦	  +-- **/*.js
-¦    +-- index.js # Main entry point
++-- config
+Â¦    +-- webpack.build.conf.js # Settings for production
+Â¦    +-- webpack.common.conf.js # Common settings for development and production
+Â¦    +-- webpack.dev.conf.js # Settings for development
 +-- node_modules/ # node_modules default folder
-+-- README.md
-+-- package.json
++-- public/ # Builded project directory
+Â¦    +-- chunks/ # Dynamic loaded modules
+Â¦    Â¦    +-- *.js 
+Â¦    +-- css/ # Dynamic loaded css
+Â¦    Â¦    +-- **/*.css
+Â¦    +-- static/
+Â¦    Â¦    +-- favicon/ # All size favicon
+Â¦    Â¦    +-- fonts/ # All fonts
+Â¦    Â¦    +-- icons/ # All icons
+Â¦    Â¦    +-- images/ # All images
+Â¦    +-- broserconfig.xml # Settings for phones
+Â¦    +-- index.html # Main entry point
+Â¦    +-- main.js # Main js file
+Â¦    +-- manifest.json # Site's settings
+Â¦    +-- sw.js # Server Worker
++-- src/ # Development project directory
+Â¦    +-- js/ # All of yours bundled js goes here
+Â¦    Â¦    +-- **/*.js 
+Â¦    +-- modules/ # All of yours modules go here
+Â¦    Â¦    +-- **/*.js
+Â¦    +-- static/ # All of yours images/icons/fonts/favicon go here
+Â¦    Â¦	  +-- **/*.(woff|woff2|eot|ttf|svg|bmp|gif|jpeg|png)
+Â¦    +-- styles/ # All of yours styles go here
+Â¦    Â¦	  +-- **/*.scss
+Â¦    Â¦	  +-- common.scss
+Â¦    +-- index.html # Main entry point
+Â¦    +-- index.js # Main js file
 +-- .babelrc
 +-- .gitignore
++-- broserconfig.xml
++-- build-sw.js
++-- manifest.json
++-- package-lock.json
++-- package.json
 +-- .postcss.config.js
-L-- webpack.config.js
++-- README.md
 ```
-

@@ -1,13 +1,12 @@
 //Font
-$body-font-family: Rubik, Helvetica, Arial, sans-serif;
+$main-font-family: Rubik, Helvetica, Arial, sans-serif;
 
 //Size
 $desktop-font-size: 18px;
 $tablet-font-size: 16px;
 $mobile-font-size: 14px;
 
-//Site name
-$site-name: 32px;
+$gap-width: 70px;
 
 //Responsable font-size
 $font-base-min: 16px;
@@ -15,6 +14,7 @@ $font-base-max: 2;
 $breakmin: 425px;
 $breakmax: 775;
 
+//Screen width
 $screen-xs: 425px;  
 $screen-sm: 576px;  
 $screen-md: 768px;  
@@ -22,15 +22,13 @@ $screen-lg: 992px;
 $screen-xl: 1200px; 
 
 //Color
-$default-color: #fff;
-$bg-color: #eff2ff;
+$section-bg-color: #eff2ff;
 
 $main-font-color: #8798ad;
-$heading-description-color: #2e384d;
+$mark-color: #2e384d;
+$border-color: #e0e7ff;
 
 $button-link-icon-color: #2e5bff;
-
-$slide-bg-color: rgba(46, 91, 255, .3);
 $delimeter-color: #dfe7ff;
 
-$footer-bg-color: #d5deff;
+$bg-color: #d5deff;

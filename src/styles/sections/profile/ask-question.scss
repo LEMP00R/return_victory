@@ -1,0 +1,16 @@
+.ask-question {
+	grid-column: 1;
+	grid-row: 3;
+
+	&__textarea {
+		width: 100%;
+		border: 1px solid $border-color;
+		border-radius: 3px;
+		background-color: $bg-color;
+		resize: none;
+	}
+
+	&__submit {
+    	margin-top: 30px;
+  	}
+}

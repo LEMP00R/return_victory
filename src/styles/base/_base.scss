@@ -1,25 +1,5 @@
-@import 'normalize';
 @import 'variables';
-@import 'fonts';
 @import 'typography';
-@import 'scrollbar';
-
-html, body {
-	position: absolute;
-	top: 0;
-	left: 50%;
-	width: 100vw;
-	max-width: 1400px;
-	min-width: 320px;
-	height: 100vh;
-	overflow-x: hidden;
-	font-family: $body-font-family;
-	transform: translateX(-50%);
-	color: $main-font-color;
-
-	@include size-responsive($font-base-min, $font-base-max, $breakmin, $breakmax);
-}
-
 
 
 

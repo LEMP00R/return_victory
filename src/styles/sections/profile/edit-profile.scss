@@ -1,0 +1,36 @@
+.edit-profile {
+	grid-column: 1;
+	grid-row: 1;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 30px 1fr;
+
+	&__heading {
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	&__form {
+		grid-column: 1;
+		grid-row: 2;
+	}
+
+	&__item:not(:last-child) {
+		display: flex;
+		flex-direction: column;
+		margin: 20px 0;
+	}
+
+	&__specialty {
+		width: 80%;
+		border: 1px solid $border-color;
+		border-radius: 3px;
+		background-color: $bg-color;
+		color: $mark-color;
+	}
+
+	&__quest-progress {
+		grid-column: 2;
+		grid-row: 2;
+	}
+}
