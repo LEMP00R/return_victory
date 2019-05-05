@@ -86,6 +86,11 @@ module.exports = {
             {
                 from: `../browserconfig.xml`,
                 to: `${PATHS.dist}`
+            },
+            {
+                from: `backend/*`,
+                to: `${PATHS.dist}`,
+                context: `${PATHS.src}`,
             }
         ]),
         new HtmlWebpackPlugin({
