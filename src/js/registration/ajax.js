@@ -11,7 +11,6 @@ el.addEventListener('click', event => {
 	var birthYearUser = $("input[name='birth_year']").val();
 	var repeatPassword = $("input[name='registration-repeat-password']").val();
 	var sexUser = $("input[name='sex']").val();
-	alert(sexUser);
 	/* var dataData = "?registration-surname=" + surnameUser + "&registration-name=" + nameUser + "&birth_date=" + birthDateUser + "&birth_month=" + birthMonthUser +
 		"&birth_year=" + birthYearUser + "&sex=" + sexUser + "&registration-email=" + emailUser + "&registration-password=" + passwordUser +
 		"registration-repeat-password=" + repeatPassword; */
@@ -24,11 +23,12 @@ el.addEventListener('click', event => {
 			url: 'backend/registrationFunc.php',
 			data: formName.serialize(),
 			success: function (data) {
-				$('#result').text(data);
+				return location.href = 'https://olimpchnu.lady-tina.ru/';
 			},
 			error: function (jqXHR, text, error) {
 				$(formName).text(error);
 			}
 		});
+
 	}
 });
