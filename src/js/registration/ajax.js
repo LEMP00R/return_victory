@@ -1,27 +1,34 @@
-let el = document.getElementById('create-account')
+import $ from 'jquery'
+let el = document.getElementById('create-account');
 el.addEventListener('click', event => {
-	console.log("Hello");
-	https://olimpchnu.lady-tina.ru/?registration-surname=%D0%9B%D0%B5%D0%BC%D0%BF%D0%B5%D1%80&registration-name=
-		// %D0%9D%D0%B8%D0%BA%D0%B8%D1%82%D0%B0&birth_date=12&birth_month=02&birth_year=fadfa&sex=male&registration-email
-		// =lemper2015%40gmail.com&registration-password=xzadsg&registration-repeat-password=asgsdgag
+	var data = new FormData("#registration__form");
 	var nameUser = $("input[name = 'registration-name']").val();
 	var surnameUser = $("input[name='registration-surname']").val();
 	var passwordUser = $("input[name='registration-password']").val();
-	var formID = $(this).attr('id');
-	var formNm = ('#' + formID);
-	alert(nameUser);
-	alert(formID);
-	alert(formNm);
-	$.ajax({
-		type: "POST",
-		url: '../backend/registrationFunc.php',
-		data: formNm.serialize(),
-		success: function (data) {
-			$('#result').text(data);
-		},
-		error: function (jqXHR, text, error) {
-			$(formNm).text(error);
-		}
-	});
-	return false
-})
+	var emailUser = $("input[name='registration-email']").val();
+	var birthDateUser = $("input[name='birth_date']").val();
+	var birthMonthUser = $("input[name='birth_month']").val();
+	var birthYearUser = $("input[name='birth_year']").val();
+	var repeatPassword = $("input[name='registration-repeat-password']").val();
+	var sexUser = $("input[name='sex']").val();
+	alert(sexUser);
+	/* var dataData = "?registration-surname=" + surnameUser + "&registration-name=" + nameUser + "&birth_date=" + birthDateUser + "&birth_month=" + birthMonthUser +
+		"&birth_year=" + birthYearUser + "&sex=" + sexUser + "&registration-email=" + emailUser + "&registration-password=" + passwordUser +
+		"registration-repeat-password=" + repeatPassword; */
+	var formID = $("form[name = 'registration__form']").attr('id');
+	var formName = $('#' + formID);
+	if (nameUser !== "" && surnameUser !== "" && passwordUser !== "" && emailUser !== "" && birthDateUser !== "" && birthMonthUser !== ""
+	&& birthYearUser !== "" && repeatPassword !== "" && repeatPassword === passwordUser) {
+		$.ajax({
+			type: 'POST',
+			url: 'backend/registrationFunc.php',
+			data: formName.serialize(),
+			success: function (data) {
+				$('#result').text(data);
+			},
+			error: function (jqXHR, text, error) {
+				$(formName).text(error);
+			}
+		});
+	}
+});

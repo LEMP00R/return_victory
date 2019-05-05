@@ -108,6 +108,10 @@ module.exports = {
         }),
         new CompressionPlugin({
             algorithm: 'gzip'
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
         })
     ],
     node: {
