@@ -1,6 +1,6 @@
 import '../../styles/sections/login/login.scss' 
 
-import(/* webpackChunkName: "swap-to-registration-form" */ '../../js/login/swap.js')
+import { RegistrationLink } from '../../js/login/swap.js'
 	
 import { LoginTemplate } from './login.template'
 
@@ -11,5 +11,7 @@ export const Login = {
     	main.className = 'container-for-login'
     	main.innerHTML += LoginTemplate
     	document.body.appendChild(main)
+
+    	RegistrationLink.init()
     }
 }

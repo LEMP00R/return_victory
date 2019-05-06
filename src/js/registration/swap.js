@@ -1,8 +1,8 @@
-const loginLink = {
+export const LoginLink = {
     init() {
         this.elements =  document.querySelector('.registration__wrapper')
-								 .querySelector('.sign-block')
-							     .querySelector('[data-target="sign-in"]')
+                                 .querySelector('.sign-block')
+                                 .querySelector('[data-target="sign-in"]')
         
         this.initEvents()
     },
@@ -22,5 +22,3 @@ const loginLink = {
         target.classList.remove(className)
     }
 }
-
-loginLink.init()

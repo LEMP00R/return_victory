@@ -1,4 +1,4 @@
-const registrationLink = {
+export const RegistrationLink = {
     init() {
         this.elements =  document.querySelector('.login__wrapper')
 								 .querySelector('.sign-block')
@@ -22,5 +22,3 @@ const registrationLink = {
         target.classList.remove(className)
     }
 }
-
-registrationLink.init()

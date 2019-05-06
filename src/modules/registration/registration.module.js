@@ -1,8 +1,8 @@
 import '../../styles/sections/registration/registration.scss'
 
-import(/* webpackChunkName: "swap-to-login-form" */ '../../js/registration/swap.js') 
 import(/* webpackChunkName: "ajax" */ '../../js/registration/ajax.js')
-	
+
+import { LoginLink } from '../../js/registration/swap.js'
 import { RegistrationTemplate } from './registration.template'
 
 export const Registration = {
@@ -12,5 +12,7 @@ export const Registration = {
     	main.className = 'container-for-registration'
     	main.innerHTML += RegistrationTemplate
         document.body.appendChild(main)
+
+        LoginLink.init()
     }
 }
