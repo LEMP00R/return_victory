@@ -2,7 +2,7 @@
  "name": "Моя майбутня професія",
  "description": "Квести для визначення схильності до певної спеціальності в галузі IT",
  "short_name": "Моя майбутня професія",
- "start_url": "/",
+ "start_url": "\/",
  "theme_color": "#ffffff",
  "background_color": "#ffffff",
  "display": "standalone",

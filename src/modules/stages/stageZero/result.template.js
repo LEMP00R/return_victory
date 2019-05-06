@@ -1,4 +1,4 @@
-export const ResultPageTest = `
+export const Result = `
 <section class="result">
 	<h2 class="result__heading">Найкраша спеціальність для тебе - 
 		<a href="" class="link">Інженерія програмного забезпечення</a>
@@ -11,7 +11,7 @@ export const ResultPageTest = `
 		<option>Frontend</option>
 	</select>
 	<div class="result__submit">
-		<input type="submit" value="Далі" id="result-next" class="button"/>
+		<input type="submit" value="Далі" id="result-next-btn" class="button"/>
 	</div>
 </section>
 `

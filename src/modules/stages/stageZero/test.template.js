@@ -46,7 +46,7 @@ export const Test = `
 				  </div>
 				</div>
 		<div class="test__submit">
-            <input type="submit" value="Далі" id="next-question" class="button"/>
+            <input type="submit" value="Далі" id="test-next-question-btn" class="button"/>
         </div>
 	</form>
 </section>
