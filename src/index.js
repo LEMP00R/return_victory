@@ -125,7 +125,7 @@ const Login = {
         this.content = [
             document.getElementsByClassName('banner')[0],
             document.getElementsByClassName('site-header')[0],
-            document.getElementsByClassName('site-main-content')[0],
+            ...document.getElementsByClassName('page'),
             document.getElementsByClassName('site-footer')[0]
         ]
         this.loginPageLoaded = false
@@ -145,7 +145,7 @@ const Login = {
         import(/* webpackChunkName: "login" */ `./modules/login/login.module`)
                 .then(lazyModule => {
                     let login = lazyModule.Login
-                    login ? login.init() : false
+                    login ? login.init(this.content) : false
                     this.hideTarget(document.querySelector('.container-for-login'), 'hide')
                 })
                 .catch(error => 'Error while loading Login module') 

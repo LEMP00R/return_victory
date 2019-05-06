@@ -9,11 +9,8 @@ export const LoginLink = {
     initEvents() {
         this.elements.addEventListener('click', event => {
             this.hide(document.querySelector('.container-for-registration'), 'hide')
-            this.showView()
+            this.show(document.querySelector('.container-for-login'), 'hide')
         })
-    },
-    showView() {
-        this.show(document.querySelector('.container-for-login'), 'hide')
     },
     hide(target, className) {
         target.classList.add(className)

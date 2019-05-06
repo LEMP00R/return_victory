@@ -5,11 +5,11 @@ export const LoginTemplate = `
       <form id="login__form" class="login__form">
         <div class="login__item login__email">
           <label for="login-email">електронна пошта</label><br/>
-          <input type="text" id="login-email" class="login__input" />
+          <input type="email" id="login-email" class="login__input" required />
         </div>
         <div class="login__item login__password">
           <label for="password">пароль</label><br/>
-          <input type="password" id="login-password" class="login__input" />
+          <input type="password" id="login-password" class="login__input" required />
         </div>
         <input type="submit" value="Увійти в систему" id="enter-account" class="button login__button"/>
         <div class="sign-block">Ще не зареєстровані? <span data-target="sign-up" class="link--active">Зареєструватися</span></div>

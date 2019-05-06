@@ -1,4 +1,4 @@
-export const Greeting = `
+export const GreetingTemplate = `
 	<section class="intro">
 		<div>
 			<h1 class="greeting__heading">Привіт!</h1>
