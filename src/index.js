@@ -1,6 +1,8 @@
 const Main = {
 
     init() {
+        this.initServiceWorker()
+        
         this.currentMenuItem = null
         this.currentPage = null
         this.loadedPages = ['home']

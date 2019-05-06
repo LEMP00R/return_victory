@@ -7,6 +7,7 @@ export const IsRegisteredUser = {
 		this.userPassword = document.getElementById('login-password')
 		this.btnEnterAccount = document.getElementById('enter-account')
 
+
 		this.initEvents()
 	},
 	initEvents() {
@@ -34,7 +35,6 @@ export const IsRegisteredUser = {
 								
 					}
 				})*/
-
 				import(/* webpackChunkName: "greeting" */ '../../modules/stages/stageZero/greeting.module')
 					  .then(lazyModule => {
 					  		let greeting = lazyModule.Greeting

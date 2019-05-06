@@ -29,6 +29,5 @@ el.addEventListener('click', event => {
 				$(formName).text(error);
 			}
 		});
-
 	}
 });
