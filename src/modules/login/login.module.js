@@ -10,7 +10,7 @@ export const Login = {
         let main = document.createElement('div')
     	main.className = 'container-for-login'
     	main.innerHTML += LoginTemplate
-    	document.body.appendChild(main)
+    	document.body.insertBefore(main, document.querySelector('.banner'))
 
     	RegistrationLink.init()
     }

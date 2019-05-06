@@ -38,9 +38,9 @@ export const RegistrationTemplate = `
           <label for="registration-repeat-password">повторіть пароль</label><br/>
           <input type="password" id="registration-repeat-password" class="registration__input" name="registration-repeat-password" required />
         </div>
-        <input type="submit" value="Зареєструватися" id="create-account" class="button" />
+        <input type="submit" value="Зареєструватися" id="create-account" class="button registration__button" />
+        <div class="sign-block">Вже зареєстровані?<span data-target="sign-in" class="link--active">Увійти</span></div>
       </form>     
-      <div class="sign-block">Вже зареєстровані?<span data-target="sign-in" class="link--active">Увійти</span></div>
     </div>
     <div class="socials">
     	<div class="socials__title">Авторизація через соцмережі</div>
