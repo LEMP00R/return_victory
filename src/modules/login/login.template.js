@@ -11,8 +11,8 @@ export const LoginTemplate = `
           <label for="password">пароль</label><br/>
           <input type="password" id="login-password" class="login__input" />
         </div>
+        <input type="submit" value="Увійти в систему" id="enter-account" class="button"/>
       </form>
-      <input type="submit" value="Увійти в систему" id="enter-account" class="button"/>
       <div class="sign-block">Ще не зареєстровані? <span data-target="sign-up" class="link--active">Зареєструватися</span></div>
     </div>
     <div class="socials">
