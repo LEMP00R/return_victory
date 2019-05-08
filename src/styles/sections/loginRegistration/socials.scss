@@ -1,0 +1,23 @@
+.socials {
+	display: grid;
+	justify-items: center;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(2, 1fr);
+	padding-top: 25px;
+	border-top: 1px solid $delimeter-color;
+
+	&__title {
+		grid-row: 1;
+	}
+
+	&__items {
+		grid-row: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__item {
+		padding: 20px 30px 0 30px;
+	}
+}
