@@ -107,6 +107,10 @@ module.exports = {
                 from: `backend/*`,
                 to: `${PATHS.dist}`,
                 context: `${PATHS.src}`,
+            },
+            {
+                from: `../.htaccess`,
+                to: `${PATHS.dist}`
             }
         ]),
         new HtmlWebpackPlugin({

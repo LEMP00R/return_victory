@@ -1,7 +1,7 @@
 import '../../styles/sections/loginRegistration/loginRegistration.scss' 
 
 import { LoginTemplate } from './login.template'
-import { RegistrationLink } from '../../js/login/swap'
+import { RegistrationLink } from '../../js/login/swap-to-registration'
 
 export const Login = {
     
