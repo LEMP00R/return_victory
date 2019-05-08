@@ -123,6 +123,16 @@
 			display: block !important;
 		}
 
+		.slide--in {
+			transition: transform 1s;
+			transform: translateX(0);
+		}
+
+		.slide--out {
+			transition: transform .8s;
+			transform: translateX(calc(100% + 140px));
+		}
+
         .sign-block>span {
 			margin: 0 10px;
 		}
@@ -485,7 +495,7 @@
 	</header>
 	<main class="site-main-content">
 		<div class="content-container">
-			<section id="home" class="home page">
+			<section id="home" class="home page slide--out">
 				<section class='intro'>
 					<div>
 						<h1 class='intro__heading'>Знайди свою ідеальну професію</h1>
@@ -541,11 +551,11 @@
 					</div>
 				</section>
 			</section>
-			<section id="map" class='map page'></section>
-			<section id="faq" class="faq page"></section>
-			<section id="profile" class="profile page"></section>
-			<section id="lections" class="lections page"></section>
-			<section id="greeting" class="greeting page"></section>
+			<section id="map" class='map page slide--out'></section>
+			<section id="faq" class="faq page slide--out"></section>
+			<section id="profile" class="profile page slide--out"></section>
+			<section id="lections" class="lections page slide--out"></section>
+			<section id="greeting" class="greeting page slide--out"></section>
 		</div>
 	</main>
 	<footer class="site-footer">

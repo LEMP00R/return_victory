@@ -1,11 +1,12 @@
+
 const Main = {
 
     init() {
-        this.initServiceWorker()
         
         this.currentMenuItem = null
         this.currentPage = null
         this.loadedPages = ['home']
+        this.previousPage = null
         this.body = document.querySelector("body")
         this.header = document.querySelector(".site-header")
         this.navbar = document.querySelector('#navbar')
@@ -24,6 +25,7 @@ const Main = {
         this.currentMenuItem = this.menuListItems[0]
         this.currentPage = this.pages[0]
         this.currentMenuItem.classList.add('navbar__list-item--selected')
+        this.fadeOut(this.currentPage)
 
         this.showView()
     },
@@ -36,18 +38,22 @@ const Main = {
 
                 this.currentMenuItem = target 
                 this.toggleClass(this.currentMenuItem, 'navbar__list-item--selected', this.menuListItems)
+                this.previousPage = this.currentPage
+                this.fadeOut(this.previousPage)
                 let currentPageData = target.dataset.target
                 this.currentPage = this.pageComponents[currentPageData]
-                this.hide(this.currentPage, 'hide', this.pages)
+                this.fadeIn(this.currentPage, this.previousPage)
 
             } else if ("IMG" === target.tagName || "SPAN" === target.tagName) {
                 if (this.currentMenuItem === target.parentElement) return 
 
                 this.currentMenuItem = target .parentElement
                 this.toggleClass(this.currentMenuItem, 'navbar__list-item--selected', this.menuListItems)
+                this.previousPage = this.currentPage
+                this.fadeOut(this.previousPage)
                 let currentPageData = target.parentElement.dataset.target
                 this.currentPage = this.pageComponents[currentPageData]
-                this.hide(this.currentPage, 'hide', this.pages)
+                this.fadeIn(this.currentPage, this.previousPage)
 
             } else {
                 return
@@ -98,12 +104,22 @@ const Main = {
         target.classList.add(className)
         arr.filter(item => item !== target).map(item => item.classList.remove(className))
     },
-    fadeOut(target, arr) {
-        target.style.opacity = '1'
-        arr.filter(item => item !== target).map(item => item.style.opacity = '0')
+    fadeOut(target) {
+        target.classList.remove('slide--out')
+        target.classList.add('slide--in')
     },
-    fadeIn(target, arr) {
+    fadeIn(target, previous) {
 
+        if (previous) {
+            previous.classList.add('slide--out')
+            previous.classList.remove('slide--in')
+            setTimeout(() => {
+                previous.replaceWith(target)
+                setTimeout(() => {
+                    this.fadeOut(target)
+                }, 600)
+            }, 600)
+        }
     }, 
     hide(target, className, arr) {
         target.classList.remove(className)

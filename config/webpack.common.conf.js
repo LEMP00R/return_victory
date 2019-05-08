@@ -22,6 +22,7 @@ module.exports = {
          main: './index.js'
     },
     resolve: {
+        modules: ['node_modules'],
     	extensions: ['.scss', '.js', '.json']
   	},
     optimization: {
@@ -29,7 +30,22 @@ module.exports = {
             new UglifyJsWebpackPlugin({
                 parallel: true
             })
-        ]
+        ],
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                  test: /[\\/]node_modules[\\/]/,
+                  name: 'vendors',
+                  chunks: 'all'
+                },
+                common: {
+                    name: 'common',
+                    chunks: 'initial',
+                    minSize: 0,
+                    maxInitialRequests: Infinity
+                }
+            }
+        },
     },
     module: {
         rules: [
@@ -103,6 +119,7 @@ module.exports = {
                 minifyCSS: true,
                 removeRedundantAttributes: true,
                 removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
                 useShortDoctype: true
             }
         }),
@@ -111,7 +128,8 @@ module.exports = {
         }),
         new webpack.ProvidePlugin({
             $: 'jquery',
-            jQuery: 'jquery'
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
         })
     ],
     node: {
