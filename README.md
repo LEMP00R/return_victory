@@ -38,7 +38,7 @@ The project structure:
 ¦    +-- chunks/ # Dynamic loaded modules
 ¦    ¦    +-- *.js 
 ¦    +-- css/ # Dynamic loaded css
-¦    ¦    +-- **/*.css
+¦    ¦    +-- *.css
 ¦    +-- static/
 ¦    ¦    +-- favicon/ # All size favicon
 ¦    ¦    +-- fonts/ # All fonts

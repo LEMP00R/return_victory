@@ -1,19 +1,21 @@
-import '../../styles/sections/login/login.scss' 
+import '../../styles/sections/loginRegistration/loginRegistration.scss' 
 
-import { RegistrationLink } from '../../js/login/swap.js'
-import { IsRegisteredUser } from '../../js/login/ajax.js'
-	
 import { LoginTemplate } from './login.template'
+import { RegistrationLink } from '../../js/login/swap'
 
 export const Login = {
     
-    init(content) {
-        let main = document.createElement('div')
-    	main.className = 'container-for-login'
-    	main.innerHTML += LoginTemplate
-    	document.body.insertBefore(main, document.querySelector('.banner'))
-
-    	RegistrationLink.init()
-    	IsRegisteredUser.init(main, content)
+    init(currentPage) {
+    	this.page = document.getElementById('login') 
+    	RegistrationLink.init(this.render(this.page, currentPage === this.page))
+    },
+    show(target) {
+    	target.classList.remove('slide--out')
+    	target.classList.add('slide--in')
+    },
+    render(page, needToShow) {
+    	page.innerHTML += LoginTemplate
+    	if (needToShow) this.show(page)
+    	return page
     }
 }

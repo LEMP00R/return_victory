@@ -1,5 +1,4 @@
 export const RegistrationTemplate = `
-  <div class="registration">
     <div class="registration__wrapper">
       <h2 class="registration__title">Реєстрація</h2>
       <form id="registration__form" class="registration__form" name="registration__form">
@@ -56,7 +55,6 @@ export const RegistrationTemplate = `
     	  </a>
       </div>
     </div>
-  </div>
 `
 
 	    		

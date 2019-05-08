@@ -2,18 +2,29 @@
 const Main = {
 
     init() {
+        this.initServiceWorker()
         
         this.currentMenuItem = null
         this.currentPage = null
-        this.loadedPages = ['home']
         this.previousPage = null
-        this.body = document.querySelector("body")
-        this.header = document.querySelector(".site-header")
-        this.navbar = document.querySelector('#navbar')
+        this.loadedPages = null
+
+        this.bodyElements = Array.from(document.body.children)
+
+        //Login, registration links
+        this.loginLinks = Array.from(document.querySelectorAll('[data-target="login"]'))
+        this.registrationLinks = Array.from(document.querySelectorAll('[data-target="registration"]'))
+        this.loginRegistrationLinks = this.loginLinks.concat(this.registrationLinks)
+
+        //Navbar links
         this.menuList = document.querySelector(".navbar__list")
         this.menuListItems = Array.from(document.querySelectorAll(".navbar__list-item"))
+        
+        //Pages
         this.pages = Array.from(document.querySelectorAll(".page"))
-        this.pageComponents = this.pages.reduce((result, currentComponent) => {
+
+
+        this.pageItems = this.pages.reduce((result, currentComponent) => {
             result[currentComponent.id] = currentComponent
             return result
         }, {})
@@ -23,44 +34,46 @@ const Main = {
     },
     initDefaultValues() {
         this.currentMenuItem = this.menuListItems[0]
-        this.currentPage = this.pages[0]
+        this.currentPage = this.previousPage = document.getElementById('home')
+        this.loadedPages = ['home']
         this.currentMenuItem.classList.add('navbar__list-item--selected')
-        this.fadeOut(this.currentPage)
+        this.slideIn(this.currentPage)
 
         this.showView()
     },
     initEvents() {
         this.menuList.addEventListener("click", event => {
-            let target = event.target
+            
+            let tag = event.target.tagName
+            let target = "LI"   === tag ? event.target :
+                         "IMG"  === tag ? event.target.parentElement :
+                         "SPAN" === tag ? event.target.parentElement : false
 
-            if ("LI" === target.tagName) {
-                if (this.currentMenuItem === target) return
+            if (!target || this.currentMenuItem === target) return 
+                
+            this.currentMenuItem = target 
+            this.toggleClass(this.currentMenuItem, 'navbar__list-item--selected', this.menuListItems)
+            this.previousPage = this.currentPage
 
-                this.currentMenuItem = target 
-                this.toggleClass(this.currentMenuItem, 'navbar__list-item--selected', this.menuListItems)
-                this.previousPage = this.currentPage
-                this.fadeOut(this.previousPage)
-                let currentPageData = target.dataset.target
-                this.currentPage = this.pageComponents[currentPageData]
-                this.fadeIn(this.currentPage, this.previousPage)
-
-            } else if ("IMG" === target.tagName || "SPAN" === target.tagName) {
-                if (this.currentMenuItem === target.parentElement) return 
-
-                this.currentMenuItem = target .parentElement
-                this.toggleClass(this.currentMenuItem, 'navbar__list-item--selected', this.menuListItems)
-                this.previousPage = this.currentPage
-                this.fadeOut(this.previousPage)
-                let currentPageData = target.parentElement.dataset.target
-                this.currentPage = this.pageComponents[currentPageData]
-                this.fadeIn(this.currentPage, this.previousPage)
-
-            } else {
-                return
-            }
+            let currentPageData = target.dataset.target
+            this.currentPage = this.pageItems[currentPageData]
+            this.slideOut(this.currentPage, this.previousPage)
 
             this.showView()
         })
+
+        this.loginRegistrationLinks.map(item => item.addEventListener('click', event => {
+            let target = event.target
+
+            this.previousPage = this.currentPage
+            this.currentPage = this.pageItems[target.dataset.target]
+            
+            this.slideOut(this.currentPage.parentElement, document.getElementsByClassName('wrapper')[0])
+
+            setTimeout(() => {
+                this.showView()
+            }, 800) 
+        }))
     },
     showView() {
         let currentPageId = this.currentPage.id
@@ -74,7 +87,7 @@ const Main = {
                     let map = lazyModule.Map
                     map ? map.init(this.currentPage) : false
                 })
-                .catch(error => 'Error while loading MapModule') : 
+                .catch(error => `Error while loading Map Module ${error}.`) : 
         "faq" === currentPageId ? 
             import(  /* webpackChunkName: "FAQ" */  `./modules/faq/FAQ.module`)
                 .then(lazyModule => {
@@ -82,7 +95,7 @@ const Main = {
                     let FAQ = lazyModule.FAQ
                     FAQ ? FAQ.init(this.currentPage) : false
                 })
-                .catch(error => 'Error while loading FAQModule') : 
+                .catch(error => `Error while loading FAQ Module ${error}.`) : 
         "profile" === currentPageId ?
             import(  /* webpackChunkName: "profile" */  `./modules/profile/profile.module`)
                 .then(lazyModule => {
@@ -90,7 +103,7 @@ const Main = {
                     let profile = lazyModule.Profile
                     profile ? profile.init(this.currentPage) : false
                 })
-                .catch(error => 'Error while loading ProfileModule') :
+                .catch(error => `Error while loading Profile Module ${error}.`) :
         "lections" === currentPageId ?
             import(  /* webpackChunkName: "lections" */  `./modules/lections/lections.module`)
                 .then(lazyModule => {
@@ -98,32 +111,65 @@ const Main = {
                     let lections = lazyModule.Lections
                     lections ? lections.init(this.currentPage) : false
                 })
-                .catch(error => 'Error while loading LectionsModule') : false
+                .catch(error => `Error while loading Lections Module ${error}.`) : false
+
+
+        if ("login" === currentPageId || "registration" === currentPageId) {
+            this.loadedPages.push('login', 'registration')
+
+            import(  /* webpackChunkName: "login" */  `./modules/login/login.module`)
+                .then(lazyModule => {
+                    
+                    let login = lazyModule.Login
+                    login ? login.init(this.currentPage) : false
+                })
+                .catch(error => `Error while loading Login Module ${error}.`)
+
+            import(  /* webpackChunkName: "registration" */  `./modules/registration/registration.module`)
+                .then(lazyModule => {
+                    let registration = lazyModule.Registration
+                    registration ? registration.init(this.currentPage) : false
+                })
+                .catch(error => `Error while loading Registration Module ${error}.`)
+        }
     },
     toggleClass(target, className, arr) {
         target.classList.add(className)
         arr.filter(item => item !== target).map(item => item.classList.remove(className))
     },
-    fadeOut(target) {
+    slideIn(target) {
         target.classList.remove('slide--out')
         target.classList.add('slide--in')
+        setTimeout(() => {
+            this.slideTop()
+        }, 600)
     },
-    fadeIn(target, previous) {
+    slideOut(target, previous) {
 
         if (previous) {
+
             previous.classList.add('slide--out')
             previous.classList.remove('slide--in')
+
             setTimeout(() => {
                 previous.replaceWith(target)
+
                 setTimeout(() => {
-                    this.fadeOut(target)
-                }, 600)
+                    this.slideIn(target)
+                }, 200)
+
             }, 600)
         }
-    }, 
-    hide(target, className, arr) {
-        target.classList.remove(className)
-        arr.filter(item => item !== target).map(item => item.classList.add(className))
+    },
+    slideTop() {
+        let lengthToTop = document.body.scrollTop || document.documentElement.scrollTop
+        
+        if (lengthToTop > 0) {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            })
+        }
     },
     initServiceWorker() {
        if (!navigator.serviceWorker) return
@@ -137,97 +183,9 @@ const Main = {
     }
 }
 
-const Login = {
-    init() {
-        this.elements = Array.from(document.querySelectorAll('[data-target="sign-in"]'))
-        this.content = [
-            document.getElementsByClassName('banner')[0],
-            document.getElementsByClassName('site-header')[0],
-            ...document.getElementsByClassName('page'),
-            document.getElementsByClassName('site-footer')[0]
-        ]
-        this.loginPageLoaded = false
-        
-        this.initEvents()
-    },
-    initEvents() {
-        this.elements.map(item => item.addEventListener('click', event => {
-            this.hide('hide', this.content)
-            this.showTarget(document.querySelector('.container-for-login'), 'hide')
-        }))
-        this.showView()
-    },
-    showView() {
-        if (this.loginPageLoaded) return
 
-        import(/* webpackChunkName: "login" */ `./modules/login/login.module`)
-                .then(lazyModule => {
-                    let login = lazyModule.Login
-                    login ? login.init(this.content) : false
-                    this.hideTarget(document.querySelector('.container-for-login'), 'hide')
-                })
-                .catch(error => 'Error while loading Login module') 
-
-        this.loginPageLoaded = true
-    },
-    hide(className, arr) {
-        arr.map(item => item.classList.add(className))
-    },
-    hideTarget(target, className) {
-        target.classList.add(className)
-    },
-    showTarget(target, className) {
-        target.classList.remove(className)
-    }
-}
-
-const Registration = {
-    init() {
-        this.elements = Array.from(document.querySelectorAll('[data-target="sign-up"]'))
-        this.content = [
-            document.getElementsByClassName('banner')[0],
-            document.getElementsByClassName('site-header')[0],
-            document.getElementsByClassName('site-main-content')[0],
-            document.getElementsByClassName('site-footer')[0]
-        ]
-        this.registrationPageLoaded = false
-
-        this.initEvents()
-    },
-    initEvents() {
-        this.elements.map(item => item.addEventListener('click', event => {
-            this.hide('hide', this.content)
-            this.showTarget(document.querySelector('.container-for-registration'), 'hide')
-        }))
-        this.showView()
-    },
-    showView() {
-        if (this.registrationPageLoaded) return 
-
-        import(/* webpackChunkName: "registration" */ `./modules/registration/registration.module`)
-                .then(lazyModule => {
-                    let registration = lazyModule.Registration
-                    registration ? registration.init() : false
-                    this.hideTarget(document.querySelector('.container-for-registration'), 'hide')
-                })
-                .catch(error => 'Error while loading Registration module') 
-
-        this.registrationPageLoaded = true
-    },
-    hide(className, arr) {
-        arr.map(item => item.classList.add(className))
-    },
-    hideTarget(target, className) {
-        target.classList.add(className)
-    },
-    showTarget(target, className) {
-        target.classList.remove(className)
-    }
-}
 
 Main.init()
-Login.init()
-Registration.init()
 
 
 

@@ -1,21 +1,36 @@
 export const RegistrationLink = {
-    init() {
-        this.elements =  document.querySelector('.login__wrapper')
-								 .querySelector('.sign-block')
-							     .querySelector('[data-target="sign-up"]')
-        
+    init(login) {
+        this.parent = login.parentElement
+        this.login = login
+        this.registration = document.getElementById('registration')
+        this.registrationLink = document.querySelector('[data-target="sign-up"]')
+
         this.initEvents()
     },
     initEvents() {
-        this.elements.addEventListener('click', event => {
-            this.hide(document.querySelector('.container-for-login'), 'hide')
-            this.show(document.querySelector('.container-for-registration'), 'hide')
+        this.registrationLink.addEventListener('click', event => {
+            this.slideOut(this.parent, this.registration, this.login)
         })
     },
-    hide(target, className) {
-        target.classList.add(className)
+    slideIn(target) {
+        target.classList.remove('slide--out')
+        target.classList.add('slide--in')
     },
-    show(target, className) {
-        target.classList.remove(className)
+    slideOut(container, target, previous) {
+
+        container.classList.add('slide--out')
+        container.classList.remove('slide--in')
+
+        setTimeout(() => {
+            previous.classList.add('slide--out')
+            previous.classList.remove('slide--in')
+
+            this.slideIn(target)
+
+            setTimeout(() => {
+                this.slideIn(container)
+            }, 200)
+
+        }, 600)
     }
 }
