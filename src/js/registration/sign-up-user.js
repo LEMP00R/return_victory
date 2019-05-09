@@ -1,4 +1,3 @@
-
 export const SignUpUser = {
 	init() {
 		this.createAccount  = document.getElementById('create-account')
@@ -19,20 +18,28 @@ export const SignUpUser = {
 	},
 	initEvents() {
 		this.createAccount.addEventListener('click', event => { 
+			event.preventDefault()
+
 			if (this.nameUser !== "" && this.surnameUser !== "" && this.passwordUser !== "" && 
 				this.emailUser !== "" && this.birthDateUser !== "" && this.birthMonthUser !== "" && 
 				this.birthYearUser !== "" && this.repeatPassword !== "" && 
 				this.repeatPassword === this.passwordUser) {
-
+					console.log(this.formName)
 					$.ajax({
 						type: 'POST',
 						url: '../backend/registrationFunc.php',
 						data: this.formName.serialize(),
 						success: function (data) {
-							return location.href = '/';
+							console.log(data)
+							import(/* webpackChunkName: "greeting" */ '../../modules/stages/stageZero/greeting.module')
+								  .then(lazyModule => {
+								  		let greeting = lazyModule.Greeting
+								  		greeting ? greeting.init(this.caller, this.content) : false
+								  })
+								  .catch(error => console.log("Error while loading Greeting Module", error)) 
 						},
 						error: function (jqXHR, text, error) {
-							$(this.formName).text(error);
+							$(this.formName).text(error)
 						}
 					})
 			}
