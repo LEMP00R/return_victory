@@ -1,6 +1,8 @@
 const Main = {
 
     init() {
+        this.initServiceWorker()
+
         this.currentMenuItem = null
         this.currentPage = null
         this.previousPage = null
@@ -112,20 +114,19 @@ const Main = {
 
 
         if ("login" === currentPageId || "registration" === currentPageId) {
-            this.loadedPages.push('login', 'registration')
+            this.loadedPages.push('login', 'registration', 'greeting')
 
             import(  /* webpackChunkName: "login" */  `./modules/login/login.module`)
                 .then(lazyModule => {
-                    
                     let login = lazyModule.Login
-                    login ? login.init(this.currentPage) : false
+                    login ? login.init(this.currentPage, this.previousPage, this.bodyElements) : false
                 })
                 .catch(error => `Error while loading Login Module ${error}.`)
 
             import(  /* webpackChunkName: "registration" */  `./modules/registration/registration.module`)
                 .then(lazyModule => {
                     let registration = lazyModule.Registration
-                    registration ? registration.init(this.currentPage) : false
+                    registration ? registration.init(this.currentPage, this.previousPage, this.bodyElements) : false
                 })
                 .catch(error => `Error while loading Registration Module ${error}.`)
         }

@@ -1,54 +1,32 @@
 <?php
-	include "connection.php";
+	include './connection.php';
+	var_dump($_POST['registration-email']);
+	var_dump($_POST['registration-password']);
+	$name = (empty($_POST['registration-name'])) ? '' : $_POST['registration-name'];
+	$surname = (empty($_POST['registration-surname'])) ? '' : $_POST['registration-surname'];
+	$email = (empty($_POST['registration-email'])) ? '' : $_POST['registration-email'];
 
-	if (isset($_POST["registration-name"])) {
-		$name = $_POST["registration-name"];
-	} else {
-		$name = "";
-	}
+	$password = (empty($_POST['registration-password'])) ? 
+				 '' : $_POST['registration-password'];
 
-	if (isset($_POST["registration-surname"])) {
-		$surname = $_POST["registration-surname"];
-	} else {
-		$surname = "";
-	}
+	$passwordAgain = (empty($_POST['registration-repeat-password'])) ? 
+					  '' : $_POST['registration-repeat-password'];
 
-	if (isset($_POST["registration-password"])) {
-		$password = $_POST["registration-password"];
-	} else {
-		$password = "";
-	}
+	$sex = (empty($_POST['registration-sex'])) ? '' : $_POST['sex'];
 
-	if (isset($_POST["birth_date"]) && isset($_POST["birth_month"]) && isset($_POST["birth_year"])) {
-		$date = $_POST["birth_date"].".".$_POST["birth_month"].".".$_POST["birth_year"];
-	} else {
-		$date = "";
-	}
+	$date = (empty($_POST['birth_date']) || 
+			 empty($_POST['birth_month']) || 
+			 empty($_POST['birth_year'])) ? '' : 
+			 $_POST['birth_date'].'.'.$_POST['birth_month'].'.'.$_POST['birth_year'];
 
-	if (isset($_POST["registration-email"])) {
-		$email = $_POST["registration-email"];
-	} else {
-		$email = "";
-	}
+	$password = md5($password);
+	
+	$query = "INSERT INTO 
+					Users (email, password, name, surname, sex, date, role)
+		      VALUES 
+		    		('$email','$password','$name','$surname','$sex','$date', 'user')";
+		    
+	if (!mysqli_query($link, $query)) { echo "Error: " . $query . mysqli_error($link); }
 
-	if (isset($_POST["registration-repeat-password"])) {
-		$passwordAgain = $_POST["registration-repeat-password"];
-	} else {
-		$passwordAgain = "";
-	}
-
-	if (isset($_POST["sex"])) {
-		$sex = $_POST["sex"];
-	} else {
-		$sex = "";
-	}
-
-	if ($password == $passwordAgain && $name != "" && $surname != "" && 
-		$password != "" && $date != "" && $email != "") {
-
-	    $query = "INSERT INTO `Users`(`email`, `password`, `name`, `surname`, `sex`, `date`)
-	    		  VALUES ('$email','$password','$name','$surname','$sex','$date')";
-	    		  
-	    $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
-	}
+	mysqli_close($link);
 ?>

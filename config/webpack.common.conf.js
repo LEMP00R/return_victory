@@ -1,4 +1,5 @@
 process.traceDeprecation = true
+
 const path = require('path')
 const webpack = require('webpack')
 
@@ -69,6 +70,13 @@ module.exports = {
                 options: {
                     name: 'static/fonts/[name].[ext]'
                 }
+            },
+            {
+                test: /\.php$/,
+                loaders: [
+                  'html-minify',
+                  'php-loader'
+                ]
             }
         ]
     },

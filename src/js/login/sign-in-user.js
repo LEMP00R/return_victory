@@ -1,37 +1,30 @@
 export const SignInUser = {
-	init() {
-		this.element = document.getElementById('login__form')
-		this.userEmail = document.getElementById('login-email')
-		this.userPassword = document.getElementById('login-password')
+	init(previousPage, bodyElements) {
+		this.form = document.getElementById('login__form')
 		this.enterAccount = document.getElementById('enter-account')
 
-
-		this.initEvents()
+		this.initEvents(previousPage, bodyElements)
 	},
-	initEvents() {
+	initEvents(previousPage, bodyElements) {
 		this.enterAccount.addEventListener('click', event => {
-				/*$.ajax({
-					url: '../backend/loginFunc.php',
-					method: 'POST',
-					data: {
-						email: this.userEmail.value, 
-						password: this.userPassword.value
-					},
-					dataType: 'text',
-					success: (data) => {
+			event.preventDefault()
 
-					},
-					error: (jqXHR, text, error) => {
-								
-					}
-				})*/
-			import(/* webpackChunkName: "greeting" */ '../../modules/stages/stageZero/greeting.module')
-				  .then(lazyModule => {
-				  		let greeting = lazyModule.Greeting
-				  		greeting ? greeting.init(this.caller, this.content) : false
-				  })
-				  .catch(error => console.log("Error while loading Greeting Module", error)) 
-
+			$.ajax({
+				type: 'POST',
+				url: '../backend/loginFunc.php',
+				data: $(this.form).serialize(),
+				success: (data) => {
+					import(  /* webpackChunkName: "greeting" */  `../../modules/stages/stageZero/greeting.module`)
+					       .then(lazyModule => {
+						        let greeting = lazyModule.Greeting
+						        greeting ? greeting.init(previousPage, bodyElements) : false
+					       })
+					       .catch(error => `Error while loading Greeting Module ${error}.`)
+				},
+				error: function(jqXHR, text, error){
+					console.log(error) 
+				}
+			})
 		})
 	}
 }

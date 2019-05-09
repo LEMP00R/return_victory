@@ -447,6 +447,27 @@
     </style>
 </head>
 <body>
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : 'connect-through-FB',
+	      cookie     : true,
+	      xfbml      : true,
+	      version    : 'v3.3'
+	    });
+	      
+	    FB.AppEvents.logPageView();   
+	      
+	  };
+
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "https://connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+	</script>
 	<div class="container-for-login-registration slide--out">
 		<section id='login' class='login page slide--out'></section>
 		<section id='registration' class='registration page slide--out'></section>
