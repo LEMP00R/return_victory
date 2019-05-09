@@ -1,8 +1,6 @@
 const Main = {
 
     init() {
-        this.initServiceWorker()
-
         this.currentMenuItem = null
         this.currentPage = null
         this.previousPage = null
@@ -54,8 +52,7 @@ const Main = {
             this.toggleClass(this.currentMenuItem, 'navbar__list-item--selected', this.menuListItems)
             this.previousPage = this.currentPage
 
-            let currentPageData = target.dataset.target
-            this.currentPage = this.pageItems[currentPageData]
+            this.currentPage = this.pageItems[target.dataset.target]
             this.slideOut(this.currentPage, this.previousPage)
 
             this.showView()
@@ -63,6 +60,8 @@ const Main = {
 
         this.loginRegistrationLinks.map(item => item.addEventListener('click', event => {
             let target = event.target
+
+            this.toggleClass(undefined, 'navbar__list-item--selected', this.menuListItems)
 
             this.previousPage = this.currentPage
             this.currentPage = this.pageItems[target.dataset.target]
@@ -114,12 +113,13 @@ const Main = {
 
 
         if ("login" === currentPageId || "registration" === currentPageId) {
-            this.loadedPages.push('login', 'registration', 'greeting')
+            this.loadedPages.push('login', 'registration')
 
             import(  /* webpackChunkName: "login" */  `./modules/login/login.module`)
                 .then(lazyModule => {
                     let login = lazyModule.Login
                     login ? login.init(this.currentPage, this.previousPage, this.bodyElements) : false
+                    this.currentPage = this.pageItems['greeting']
                 })
                 .catch(error => `Error while loading Login Module ${error}.`)
 
@@ -127,13 +127,18 @@ const Main = {
                 .then(lazyModule => {
                     let registration = lazyModule.Registration
                     registration ? registration.init(this.currentPage, this.previousPage, this.bodyElements) : false
+                    this.currentPage = this.pageItems['greeting']
                 })
                 .catch(error => `Error while loading Registration Module ${error}.`)
         }
     },
     toggleClass(target, className, arr) {
-        target.classList.add(className)
-        arr.filter(item => item !== target).map(item => item.classList.remove(className))
+        if (target !== undefined) {
+            target.classList.add(className)
+            arr.filter(item => item !== target).map(item => item.classList.remove(className))
+        } else {
+            arr.map(item => item.classList.remove(className))
+        }
     },
     slideIn(target) {
         target.classList.remove('slide--out')
