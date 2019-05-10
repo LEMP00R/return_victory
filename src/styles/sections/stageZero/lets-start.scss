@@ -1,0 +1,11 @@
+.greeting {
+
+	.lets-start {
+		align-items: flex-start;
+
+		&__text {
+			width: 100%;
+			text-align: left;
+		}
+	}
+}

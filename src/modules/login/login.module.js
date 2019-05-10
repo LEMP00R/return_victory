@@ -11,7 +11,7 @@ export const Login = {
     	this.page = document.getElementById('login') 
     	RegistrationLink.init(this.render(this.page, currentPage === this.page))
         SignInUser.init(previousPage, bodyElements)
-        Facebook.init()
+        Facebook.init(previousPage, bodyElements)
     },
     show(target) {
     	target.classList.remove('slide--out')

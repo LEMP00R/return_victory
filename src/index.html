@@ -59,6 +59,7 @@
 		html {
 			display: flex;
 			justify-content: center;
+			width: 100%;
 		}
 
 		body {
@@ -76,7 +77,8 @@
 
 		.wrapper {
     		display: grid;
-    		grid-template-columns: 140px auto;
+    		width: 100%;
+    		grid-template-columns: 140px calc(100% - 140px);
 		}
 
 		*,
@@ -100,6 +102,10 @@
 			text-decoration: none;
 		}
 
+		p {
+			line-height: 25px;
+		}
+
 		::-webkit-scrollbar {
 			width: 8px;
 		}
@@ -117,7 +123,12 @@
 			background-color: rgba(46, 91, 255, .5);
 		}
 
+		.site-main-content {
+			width: 100%;
+		}
+
 		.content-container  {
+			width: 100%;
 			border-left: 1px solid #dfe7ff;
 			padding: 70px;
         }
@@ -222,6 +233,20 @@
 		.sign-block--right>span {
 			font-size: 18px;
 			color: #2e384d;
+		}
+
+		.logout {
+			margin-left: auto;
+		}
+
+		.logout__name {
+			color: #2e5bff;
+			margin-right: 20px;
+		}
+
+		.link--grey {
+			font-size: 16px;
+			color: #8798ad;
 		}
 		
 		/*header left*/
@@ -462,6 +487,11 @@
 			<div class="banner__img">
 				<img src="/static/icons/logo.png" alt="Square academic cap">
 			</div>
+		</div>
+		<div class="logout hide">
+			<span>Вітаємо,</span>
+			<span class="logout__name"></span>
+			<span data-target="logout" class="link link--grey">Вийти</span>
 		</div>
 		<div class="sign-block sign-block--right">
 			<span>

@@ -1,6 +1,16 @@
+if(localStorage) {
+    console.log(localStorage)
+}
+
+import 'slick-carousel/slick/slick.scss'
+import 'slick-carousel/slick/slick-theme.scss'
+import 'slick-carousel/slick/slick.min.js'
+
 const Main = {
 
     init() {
+        this.initServiceWorker()
+
         this.currentMenuItem = null
         this.currentPage = null
         this.previousPage = null
@@ -61,6 +71,17 @@ const Main = {
         this.loginRegistrationLinks.map(item => item.addEventListener('click', event => {
             let target = event.target
 
+
+            Array.from(document.querySelectorAll('[data-target="login"]')).map(item => {
+                item.parentNode.remove()
+            })
+            Array.from(document.querySelectorAll('[data-target="registration"]')).map(item => {
+                item.remove()
+            })
+
+            this.bodyElements = Array.from(document.body.children)
+
+            this.currentMenuItem = null
             this.toggleClass(undefined, 'navbar__list-item--selected', this.menuListItems)
 
             this.previousPage = this.currentPage
@@ -114,7 +135,7 @@ const Main = {
 
         if ("login" === currentPageId || "registration" === currentPageId) {
             this.loadedPages.push('login', 'registration')
-            
+
             import(  /* webpackChunkName: "login" */  `./modules/login/login.module`)
                 .then(lazyModule => {
                     let login = lazyModule.Login

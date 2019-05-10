@@ -1,0 +1,56 @@
+.departments-info {
+	position: relative;
+	width: 80%;
+	margin: 0 auto 70px auto;
+	outline: none;
+	border: none;
+
+	.slick-prev {
+		left: -50px;
+	}
+
+	.slick-next {
+		right: -50px;
+	}
+
+	.slick-prev, .slick-next {
+		transform: scale(1.7);
+	}
+
+	.slick-prev:before, .slick-next:before { 
+		color: lighten($button-link-icon-color, 20%);
+	}
+}
+
+.department {
+	text-align: center;
+
+	&__text {
+		color: $mark-color;
+
+		&--bold {
+			font-family: 'RubikBold';
+		}
+	}
+
+	&__links {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		padding-top: 30px;
+	}
+
+	.fa-facebook:before {
+		margin-right: 10px;
+	}
+
+	.fa-facebook {
+		color: $main-font-color;
+
+		&:hover {
+			color: $button-link-icon-color;
+		}
+	}
+}
+
+
