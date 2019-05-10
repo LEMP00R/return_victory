@@ -1,5 +1,5 @@
 export const LoginTemplate = `
-    <div class="login__wrapper">
+      <div class="login__wrapper">
       <h2 class="login__heading">Вхід в систему</h2>
       <form id="login__form" class="login__form" name="login__form">
         <div class="login__item login__email">
@@ -17,15 +17,15 @@ export const LoginTemplate = `
     <div class="socials">
       <div class="socials__title">Авторизація через соцмережі</div>
       <div class="socials_items">
-        <a href="" class="socials__item link">
+        <span class="socials__item link">
           <i class="fab fa-twitter"></i>
-        </a>
-        <a href="" class="socials__item link">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="" class="socials__item link">
+        </span>
+        <span class="socials__item link">
+          <i class="fab fa-facebook"></i>
+        </span>
+        <span class="socials__item link">
           <i class="fab fa-google"></i>
-        </a>
+        </span>
       </div>
     </div>
 `

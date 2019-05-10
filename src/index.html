@@ -9,6 +9,9 @@
     <link rel="manifest" href="/manifest.json">
 	<meta name="msapplication-config" content="/browserconfig.xml" />
 	<meta name="theme-color" content="#ffffff">
+	<meta name="google-signin-scope" content="profile email">
+	<meta name="google-signin-client_id" 
+		  content="925602732366-q1ld9hc42celr9sjqvl37cmedq10efvq.apps.googleusercontent.com">
     <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="/static/favicon/apple-icon-72x72.png">
@@ -23,6 +26,7 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="/static/favicon/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
     <style>
     	@font-face{
     		font-family: Rubik;
@@ -447,30 +451,6 @@
     </style>
 </head>
 <body>
-	<script>
-	  window.fbAsyncInit = function() {
-	    FB.init({
-	      appId      : 'connect-through-FB',
-	      cookie     : true,
-	      xfbml      : true,
-	      version    : 'v3.3'
-	    });
-	      
-	    FB.AppEvents.logPageView();   
-	  };
-
-	  (function(d, s, id){
-	     var js, fjs = d.getElementsByTagName(s)[0];
-	     if (d.getElementById(id)) {return;}
-	     js = d.createElement(s); js.id = id;
-	     js.src = "https://connect.facebook.net/en_US/sdk.js";
-	     fjs.parentNode.insertBefore(js, fjs);
-	   }(document, 'script', 'facebook-jssdk'));
-
-	  FB.getLoginStatus(function(response) {
-	     statusChangeCallback(response);
-	  });
-	</script>
 	<div class="container-for-login-registration slide--out">
 		<section id='login' class='login page slide--out'></section>
 		<section id='registration' class='registration page slide--out'></section>
@@ -532,6 +512,7 @@
 	<main class="site-main-content">
 		<div class="content-container">
 			<section id="home" class="home page slide--out">
+				<div id="status"></div>
 				<section class='intro'>
 					<div>
 						<h1 class='intro__heading'>Знайди свою ідеальну професію</h1>
@@ -606,6 +587,5 @@
 	<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
 		<script async src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
 	<% } %>
-
 </body>
 </html>

@@ -1,5 +1,6 @@
 import '../../styles/sections/loginRegistration/loginRegistration.scss' 
 
+import { Facebook } from '../../js/socials/FB'
 import { LoginTemplate } from './login.template'
 import { RegistrationLink } from '../../js/login/swap-to-registration'
 import { SignInUser } from '../../js/login/sign-in-user'
@@ -10,6 +11,7 @@ export const Login = {
     	this.page = document.getElementById('login') 
     	RegistrationLink.init(this.render(this.page, currentPage === this.page))
         SignInUser.init(previousPage, bodyElements)
+        Facebook.init()
     },
     show(target) {
     	target.classList.remove('slide--out')

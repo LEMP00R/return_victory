@@ -114,7 +114,7 @@ const Main = {
 
         if ("login" === currentPageId || "registration" === currentPageId) {
             this.loadedPages.push('login', 'registration')
-
+            
             import(  /* webpackChunkName: "login" */  `./modules/login/login.module`)
                 .then(lazyModule => {
                     let login = lazyModule.Login
