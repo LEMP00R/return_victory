@@ -66,17 +66,7 @@ module.exports = {
             },
             { 
                 test: /\.(woff|woff2|eot|ttf|svg)$/, 
-                loader: 'url-loader',
-                options: {
-                    name: 'static/fonts/[name].[ext]'
-                }
-            },
-            {
-                test: /\.php$/,
-                loaders: [
-                  'html-minify',
-                  'php-loader'
-                ]
+                loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
             }
         ]
     },

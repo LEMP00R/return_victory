@@ -2,15 +2,11 @@ if(localStorage) {
     console.log(localStorage)
 }
 
-import 'slick-carousel/slick/slick.scss'
-import 'slick-carousel/slick/slick-theme.scss'
-import 'slick-carousel/slick/slick.min.js'
-
 const Main = {
 
     init() {
         this.initServiceWorker()
-
+        
         this.currentMenuItem = null
         this.currentPage = null
         this.previousPage = null
@@ -207,9 +203,5 @@ const Main = {
     }
 }
 
-
-
 Main.init()
-
-
 

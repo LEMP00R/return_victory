@@ -104,8 +104,8 @@ WarpSpeed.prototype={
         var canvas = document.getElementById(this.targetId);
         if(!this.PAUSED && isVisible(canvas)){
             if(this.prevW != canvas.clientWidth || this.prevH != canvas.clientHeight) {
-                canvas.width = (canvas.clientWidth < 10 ? 10 : canvas.clientWidth) * (window.devicePixelRatio || 1);
-                canvas.height = (canvas.clientHeight < 10 ? 10 : canvas.clientHeight) * (window.devicePixelRatio || 1);
+                canvas.width = (window.outerWidth < 10 ? 10 : window.outerWidth) * (window.devicePixelRatio || 1);
+                canvas.height = (window.outerHeight < 10 ? 10 : window.outerHeight) * (window.devicePixelRatio || 1);
             }
             this.size = (canvas.height < canvas.width ? canvas.height : canvas.width)/(10/(this.STAR_SCALE <=0 ? 0 : this.STAR_SCALE));
             if (this.WARP_EFFECT) this.maxLineWidth = this.size/30;
@@ -189,17 +189,11 @@ WarpSpeed.prototype={
 }
 
 WarpSpeed.destroy = WarpSpeed.prototype.destroy;
-let background = new WarpSpeed( "bkFrame", { 
-    targetSpeed : 3, 
+
+export const Loader = new WarpSpeed( "bkFrame", { 
+    targetSpeed : 6, 
     speedAdjFactor : 0.07, 
     starColor: "#2e384d",
     backgroundColor: "#ffffff", 
     speedWhileLoading : 18
 });
-background.loadStart()
-
-window.onload = function() {
-    setTimeout( function() { 
-        background.loadDone()
-    }, 1000)
-}

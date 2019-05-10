@@ -8,7 +8,7 @@ export const SignInUser = {
 	initEvents(previousPage, bodyElements) {
 		this.enterAccount.addEventListener('click', event => {
 			event.preventDefault()
-
+			
 			$.ajax({
 				type: 'POST',
 				url: '../backend/loginFunc.php',
