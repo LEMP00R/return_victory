@@ -6,11 +6,10 @@ import { ProfileTemplate } from './profile.template'
 export const Profile = {
 
 	init(page) {
-        this.elementHtml = page 
-        this.render()
+        this.render(page)
     },
-    render() {
-    	this.elementHtml.innerHTML += ProfileTemplate
+    render(page) {
+    	page.innerHTML += ProfileTemplate
     }
 }
 

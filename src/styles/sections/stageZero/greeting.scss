@@ -1,0 +1,30 @@
+.greeting {
+	width: 100%;
+
+	&__list {
+		list-style: none;
+		padding: 0;
+
+		&-item {
+			margin: 15px 0;
+			color: $mark-color;
+		}
+
+		&-item:before {
+			content: "";
+			display: inline-block; 
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			margin-right: 15px;
+		  	background-color: $golden-color; 
+		}
+	}
+}
+
+.intro {
+
+	&__img--big {
+		width: 50%;
+	}
+}

@@ -3,8 +3,8 @@ const fs = require('fs')
 
 const dist = 'public/sw.js'
 
-const staticAssetsCacheName = 'quest-assets'
-const dynamicCacheName = 'quest-dynamic'
+const staticAssetsCacheName = 'quest-assets-v1'
+const dynamicCacheName = 'quest-dynamic-v1'
 
 let staticAssetsCacheFiles = glob
     .sync('public/**/*')
@@ -20,7 +20,8 @@ let staticAssetsCacheFiles = glob
 
 const stringFileCachesArray = JSON.stringify(staticAssetsCacheFiles)
 
-const serviceWorkerScript = `var staticAssetsCacheName = '${staticAssetsCacheName}'
+const serviceWorkerScript = `
+var staticAssetsCacheName = '${staticAssetsCacheName}'
 var dynamicCacheName = '${dynamicCacheName}'
 
 self.addEventListener('install', function (event) {
@@ -46,7 +47,7 @@ self.addEventListener('install', function (event) {
       caches.keys().then(function (cacheNames) {
         return Promise.all(
           cacheNames.filter(function (cacheName) {
-            return (cacheName.startsWith('quest-')) && cacheName !== staticAssetsCacheName
+            return cacheName !== staticAssetsCacheName
           })
           .map(function (cacheName) {
             return caches.delete(cacheName)

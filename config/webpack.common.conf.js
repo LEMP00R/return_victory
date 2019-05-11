@@ -1,4 +1,5 @@
 process.traceDeprecation = true
+
 const path = require('path')
 const webpack = require('webpack')
 
@@ -6,7 +7,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const UglifyJsWebpackPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const WebpackMd5Hash = require('webpack-md5-hash')
 
 const PATHS = {
 	src: path.resolve(__dirname, '../src'),
@@ -66,10 +66,7 @@ module.exports = {
             },
             { 
                 test: /\.(woff|woff2|eot|ttf|svg)$/, 
-                loader: 'url-loader',
-                options: {
-                    name: 'static/fonts/[name].[ext]'
-                }
+                loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]'
             }
         ]
     },
@@ -107,6 +104,10 @@ module.exports = {
                 from: `backend/*`,
                 to: `${PATHS.dist}`,
                 context: `${PATHS.src}`,
+            },
+            {
+                from: `../.htaccess`,
+                to: `${PATHS.dist}`
             }
         ]),
         new HtmlWebpackPlugin({

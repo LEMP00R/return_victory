@@ -1,18 +1,23 @@
-import '../../styles/sections/registration/registration.scss'
+import '../../styles/sections/loginRegistration/loginRegistration.scss'
 
-import(/* webpackChunkName: "ajax" */ '../../js/registration/ajax.js')
-
-import { LoginLink } from '../../js/registration/swap.js'
 import { RegistrationTemplate } from './registration.template'
+import { LoginLink } from '../../js/registration/swap-to-login'
+import { SignUpUser } from '../../js/registration/sign-up-user'
 
 export const Registration = {
     
-    init() {
-    	let main = document.createElement('div')
-    	main.className = 'container-for-registration'
-    	main.innerHTML += RegistrationTemplate
-        document.body.insertBefore(main, document.querySelector('.banner'))
-
-        LoginLink.init()
+    init(currentPage, previousPage, bodyElements) {
+    	this.page = document.getElementById('registration')
+    	LoginLink.init(this.render(this.page, currentPage === this.page))
+        SignUpUser.init(previousPage, bodyElements)
+    },
+    show(target) {
+    	target.classList.remove('slide--out')
+    	target.classList.add('slide--in')
+    },
+    render(page, needToShow) {
+    	page.innerHTML += RegistrationTemplate
+    	if (needToShow) this.show(page)
+    	return page
     }
 }

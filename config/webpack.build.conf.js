@@ -15,7 +15,7 @@ const buildWepackConfig = merge(commonConfig, {
 	module: {
         rules: [
             {
-                test: /\.scss$/,
+                test: /\.s?css$/,
                 use: [ 
                 	MiniCssExtractPlugin.loader, 
                 	{

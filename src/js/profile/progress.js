@@ -77,13 +77,16 @@ RadialProgress.prototype={
   setText:function(t){this.text.innerHTML=t;}
 }
 
-let questProgress = new RadialProgress(document.getElementById("quest-progress"), {
-	progress:0.7,
-	round:true,
-	colorBg:"#d5deff",
-	colorFg:"#2e5bff",
-	colorText:"#2e384d",
-	thick:12
-});
 
-questProgress.draw(true);
+
+setTimeout(() => {
+	let questProgress = new RadialProgress(document.getElementById("quest-progress"), {
+		progress: 0.7,
+		round: true,
+		colorBg: "#d5deff",
+		colorFg: "#2e5bff",
+		colorText: "#2e384d",
+		thick: 12
+	});
+	questProgress.draw(true)
+}, 1000)

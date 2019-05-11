@@ -38,7 +38,7 @@ The project structure:
 ¦    +-- chunks/ # Dynamic loaded modules
 ¦    ¦    +-- *.js 
 ¦    +-- css/ # Dynamic loaded css
-¦    ¦    +-- **/*.css
+¦    ¦    +-- *.css
 ¦    +-- static/
 ¦    ¦    +-- favicon/ # All size favicon
 ¦    ¦    +-- fonts/ # All fonts
@@ -50,6 +50,8 @@ The project structure:
 ¦    +-- manifest.json # Site's settings
 ¦    +-- sw.js # Server Worker
 +-- src/ # Development project directory
+¦    +-- backend/ 
+¦    ¦    +-- *.php 
 ¦    +-- js/ # All of yours bundled js goes here
 ¦    ¦    +-- **/*.js 
 ¦    +-- modules/ # All of yours modules go here

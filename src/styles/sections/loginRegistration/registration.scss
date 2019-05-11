@@ -1,19 +1,5 @@
-@import '../../common';
-
-@import './socials';
-
-
-.container-for-registration {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100vw;
-	height: 100vh;
-	overflow: hidden;
-	background-color: $bg-color;
-}
-
 .registration {
+	position: absolute;
 	width: 500px;
 	padding: 50px 30px;
 	background-color: #ffffff;

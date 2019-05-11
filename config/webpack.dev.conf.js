@@ -2,8 +2,6 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const commonConfig = require('./webpack.common.conf')
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
 const devWebpackConfig = merge(commonConfig, {
 	mode: 'development',
     devtool: 'source-map',
