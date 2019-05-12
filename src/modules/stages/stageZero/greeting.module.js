@@ -1,14 +1,11 @@
 import '../../../styles/sections/stageZero/stageZero.scss'
-import 'slick-carousel/slick/slick.scss'
-import 'slick-carousel/slick/slick-theme.scss'
 
 import 'slick-carousel/slick/slick.min.js'
-
 import { GreetingTemplate } from './greeting.template'
 
 export const Greeting = {
     
-    init(previousPage, bodyElements, data) {
+    init(previousPage, bodyElements, data, main) {
     	this.container = document.getElementsByClassName('container-for-login-registration')[0]
         this.target = bodyElements.filter(item => item.classList.contains('wrapper'))[0]
         this.greeting = Array.from(Array.from(this.target.children).filter(item => item.classList.contains('site-main-content'))[0].firstElementChild.children).filter(item => item.classList.contains('greeting'))[0]
@@ -36,11 +33,17 @@ export const Greeting = {
 
     	this.slideOut(this.container, this.target, this.greeting, this.previous)
 
-        
-        this.initEvents()
+        this.initEvents($(this.greeting).find('.lets-start').find('.button')[0], main)
     },
-    initEvents() {
-        
+    initEvents(button, main) {
+        button.addEventListener('click', event => {
+            import(  /* webpackChunkName: "test" */  `./test/test.module`)
+                .then(lazyModule => {
+                    let test = lazyModule.Test
+                    test ? test.init(main) : false
+                })
+                .catch(error => `Error while loading Test Module ${error}.`)
+        })
     },
     slideIn(target) {
         target.classList.remove('slide--out')

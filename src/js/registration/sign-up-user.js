@@ -1,11 +1,11 @@
 export const SignUpUser = {
-	init(previousPage, bodyElements) {
+	init(previousPage, bodyElements, main) {
 		this.form = document.getElementById('registration__form')
 		this.createAccount = document.getElementById('create-account')
 
-		this.initEvents(previousPage, bodyElements)
+		this.initEvents(previousPage, bodyElements, main)
 	},
-	initEvents(previousPage, bodyElements) {
+	initEvents(previousPage, bodyElements, main) {
 		this.createAccount.addEventListener('click', event => { 
 			event.preventDefault()
 
@@ -17,7 +17,7 @@ export const SignUpUser = {
 					import(  /* webpackChunkName: "greeting" */  `../../modules/stages/stageZero/greeting.module`)
 					       .then(lazyModule => {
 						        let greeting = lazyModule.Greeting
-						        greeting ? greeting.init(previousPage, bodyElements, data) : false
+						        greeting ? greeting.init(previousPage, bodyElements, data, main) : false
 					       })
 					       .catch(error => `Error while loading Greeting Module ${error}.`)
 				},
@@ -28,7 +28,7 @@ export const SignUpUser = {
 			/*import(  /* webpackChunkName: "greeting" *//*  `../../modules/stages/stageZero/greeting.module`)
 					       .then(lazyModule => {
 						        let greeting = lazyModule.Greeting
-						        greeting ? greeting.init(previousPage, bodyElements, 'Alexander Sosnovskiy') : false
+						        greeting ? greeting.init(previousPage, bodyElements, 'Alexander Sosnovskiy', main) : false
 					       })
 					       .catch(error => `Error while loading Greeting Module ${error}.`)*/
 		})

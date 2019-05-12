@@ -1,0 +1,12 @@
+.test {
+	&__progress {
+		width: 100%;
+  		background-color: $bg-color;
+	}
+
+	&__bar {
+		width: 0;
+		height: 10px;
+		background-color: $button-link-icon-color;
+	}
+}

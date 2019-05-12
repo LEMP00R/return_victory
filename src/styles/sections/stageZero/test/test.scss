@@ -1,0 +1,105 @@
+@import '../../../common';
+
+@import 'test-progress';
+
+.test {
+
+	&__heading {
+		margin: 70px 0 50px 0;
+	}
+
+	&__checkbox {
+		margin: 20px 0;
+	}
+
+	&__submit {
+		margin: 50px 0;
+	}
+
+	.cbx {
+		display: flex;
+		width: auto;
+		align-items: center;
+		user-select: none;
+
+		span {
+			display: flex;
+			justify-content: center;
+			cursor: pointer;
+
+			&:first-child {
+		      position: relative;
+		      width: 18px;
+		      height: 18px;
+		      border-radius: 3px;
+		      transform: scale(1);
+		      vertical-align: middle;
+		      border: 1px solid #9098A9;
+		      transition: all .2s ease;
+
+		      svg {
+		        position: absolute;
+		        top: 3px;
+		        left: 2px;
+		        fill: none;
+		        stroke: #FFFFFF;
+		        stroke-width: 2;
+		        stroke-linecap: round;
+		        stroke-linejoin: round;
+		        stroke-dasharray: 16px;
+		        stroke-dashoffset: 16px;
+		        transition: all .3s ease;
+		        transition-delay: .1s;
+		        transform: translate3d(0,0,0);
+		      }
+
+		      &:before {
+		        content: "";
+		        display: block;
+		        width: 100%;
+		        height: 100%;
+		        border-radius: 50%;
+		        background: #506EEC;
+		        opacity: 1;
+		        transform: scale(0);
+		      }
+
+		    }
+
+		    &:last-child {
+	      		padding-left: 8px;
+		    }
+		}
+
+		&:hover span:first-child {
+	    	border-color: #506EEC;
+		}
+	}
+
+	.inp-cbx--checked + .cbx {
+
+		span {
+			&:first-child {
+		      background: #506EEC;
+		      border-color: #506EEC;
+		      animation: wave .4s ease;
+
+		      svg {
+		      	stroke-dashoffset: 0;
+		      }
+
+		      &:before {
+		        transform: scale(3.5);
+		        opacity: 0;
+		        transition: all .6s ease;
+		      }
+		    }
+		}
+	}
+
+	@keyframes wave {
+	  50% {
+	    transform: scale(0.9);
+	  }
+	}
+}

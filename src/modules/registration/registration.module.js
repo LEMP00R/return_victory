@@ -6,10 +6,10 @@ import { SignUpUser } from '../../js/registration/sign-up-user'
 
 export const Registration = {
     
-    init(currentPage, previousPage, bodyElements) {
+    init(currentPage, previousPage, bodyElements, main) {
     	this.page = document.getElementById('registration')
     	LoginLink.init(this.render(this.page, currentPage === this.page))
-        SignUpUser.init(previousPage, bodyElements)
+        SignUpUser.init(previousPage, bodyElements, main)
     },
     show(target) {
     	target.classList.remove('slide--out')

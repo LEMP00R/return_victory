@@ -26,6 +26,11 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="/static/favicon/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+		<link rel="stylesheets" href="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>">
+	<% } %>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
     <style>
     	@font-face{
@@ -129,6 +134,7 @@
 
 		.content-container  {
 			width: 100%;
+			min-height: calc(100vh - 140px);
 			border-left: 1px solid #dfe7ff;
 			padding: 70px;
         }
@@ -474,6 +480,7 @@
 			margin-left: auto;
 		}
     </style>
+
 </head>
 <body>
 	<div class="container-for-login-registration slide--out">
@@ -603,6 +610,8 @@
 			<section id="profile" class="profile page slide--out"></section>
 			<section id="lections" class="lections page slide--out"></section>
 			<section id="greeting" class="greeting page slide--out"></section>
+			<section id="test" class="test page slide--out"></section>
+			<section id="result" class="result page slide--out"></section>
 		</div>
 	</main>
 	<footer class="site-footer">
