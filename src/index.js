@@ -17,6 +17,8 @@ const Main = {
     menuItems: $(".navbar__list-item").toArray(),
 
     init() {
+        this.initServiceWorker()
+        
         this.pagesID = this.pages.reduce((result, currentComponent) => {
             result[currentComponent.id] = currentComponent
             return result
