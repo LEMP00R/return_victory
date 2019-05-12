@@ -1,0 +1,25 @@
+@import '../../common';
+
+.result {
+	&__heading {
+		font-size: 24px;
+	}
+
+	&__faculty {
+		font-size: 24px;
+		font-family: 'RubikBold';
+		color: $button-link-icon-color;
+	}
+
+	&__text {
+		margin: 30px 0;
+	}
+
+	&__professions, &__professions>option {
+		margin-bottom: 50px;
+		border: 1px solid $border-color;
+		border-radius: 3px;
+		background-color: $bg-color;
+		color: $button-link-icon-color;
+	}
+}

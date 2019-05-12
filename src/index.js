@@ -4,30 +4,20 @@ if(localStorage) {
 
 const Main = {
 
+    currentMenuItem: null,
+    currentPage: null,
+    previousPage: null,
+    loadedPages: null,
+
+    bodyComponents: Array.from(document.body.childNodes).filter(node => 'SCRIPT' !== node.tagName),
+    pages: $('.page').toArray(),
+    
+    loginRegistrationLinks: $('[data-target="login"], [data-target="registration"]').toArray(),
+    menu: $(".navbar__list")[0],
+    menuItems: $(".navbar__list-item").toArray(),
+
     init() {
-        this.initServiceWorker()
-        
-        this.currentMenuItem = null
-        this.currentPage = null
-        this.previousPage = null
-        this.loadedPages = null
-
-        this.bodyElements = Array.from(document.body.children)
-
-        //Login, registration links
-        this.loginLinks = Array.from(document.querySelectorAll('[data-target="login"]'))
-        this.registrationLinks = Array.from(document.querySelectorAll('[data-target="registration"]'))
-        this.loginRegistrationLinks = this.loginLinks.concat(this.registrationLinks)
-
-        //Navbar links
-        this.menuList = document.querySelector(".navbar__list")
-        this.menuListItems = Array.from(document.querySelectorAll(".navbar__list-item"))
-        
-        //Pages
-        this.pages = Array.from(document.querySelectorAll(".page"))
-
-
-        this.pageItems = this.pages.reduce((result, currentComponent) => {
+        this.pagesID = this.pages.reduce((result, currentComponent) => {
             result[currentComponent.id] = currentComponent
             return result
         }, {})
@@ -36,29 +26,29 @@ const Main = {
         this.initEvents()
     },
     initDefaultValues() {
-        this.currentMenuItem = this.menuListItems[0]
-        this.currentPage = this.previousPage = document.getElementById('home')
+        this.currentMenuItem = this.menuItems[0]
+        this.currentPage = this.previousPage = $('#home')[0]
         this.loadedPages = ['home']
+
         this.currentMenuItem.classList.add('navbar__list-item--selected')
         this.slideIn(this.currentPage)
 
         this.showView()
     },
     initEvents() {
-        this.menuList.addEventListener("click", event => {
-            
+        this.menu.addEventListener("click", event => {
+            console.log(this.currentPage)
             let tag = event.target.tagName
-            let target = "LI"   === tag ? event.target :
-                         "IMG"  === tag ? event.target.parentElement :
-                         "SPAN" === tag ? event.target.parentElement : false
+            let target = "LI"  === tag ? event.target :
+                         "IMG" === tag || "SPAN" === tag ? event.target.parentElement : false
 
             if (!target || this.currentMenuItem === target) return 
                 
             this.currentMenuItem = target 
-            this.toggleClass(this.currentMenuItem, 'navbar__list-item--selected', this.menuListItems)
+            this.toggleClass(this.currentMenuItem, 'navbar__list-item--selected', this.menuItems)
             this.previousPage = this.currentPage
 
-            this.currentPage = this.pageItems[target.dataset.target]
+            this.currentPage = this.pagesID[target.dataset.target]
             this.slideOut(this.currentPage, this.previousPage)
 
             this.showView()
@@ -67,23 +57,18 @@ const Main = {
         this.loginRegistrationLinks.map(item => item.addEventListener('click', event => {
             let target = event.target
 
-
-            Array.from(document.querySelectorAll('[data-target="login"]')).map(item => {
-                item.parentNode.remove()
-            })
-            Array.from(document.querySelectorAll('[data-target="registration"]')).map(item => {
-                item.remove()
-            })
+            $('[data-target="login"]').toArray().map(item => item.parentNode.remove())
+            $('[data-target="registration"]').toArray().map(item => item.remove())
 
             this.bodyElements = Array.from(document.body.children)
 
             this.currentMenuItem = null
-            this.toggleClass(undefined, 'navbar__list-item--selected', this.menuListItems)
+            this.toggleClass(undefined, 'navbar__list-item--selected', this.menuItems)
 
             this.previousPage = this.currentPage
-            this.currentPage = this.pageItems[target.dataset.target]
+            this.currentPage = this.pagesID[target.dataset.target]
             
-            this.slideOut(this.currentPage.parentElement, document.getElementsByClassName('wrapper')[0])
+            this.slideOut(this.currentPage.parentNode, $('.wrapper')[0])
 
             setTimeout(() => {
                 this.showView()
@@ -135,16 +120,16 @@ const Main = {
             import(  /* webpackChunkName: "login" */  `./modules/login/login.module`)
                 .then(lazyModule => {
                     let login = lazyModule.Login
-                    login ? login.init(this.currentPage, this.previousPage, this.bodyElements) : false
-                    this.currentPage = this.pageItems['greeting']
+                    login ? login.init(this.currentPage, this.previousPage, this.bodyElements, this) : false
+                    this.currentPage = this.pagesID['greeting']
                 })
                 .catch(error => `Error while loading Login Module ${error}.`)
 
             import(  /* webpackChunkName: "registration" */  `./modules/registration/registration.module`)
                 .then(lazyModule => {
                     let registration = lazyModule.Registration
-                    registration ? registration.init(this.currentPage, this.previousPage, this.bodyElements) : false
-                    this.currentPage = this.pageItems['greeting']
+                    registration ? registration.init(this.currentPage, this.previousPage, this.bodyElements, this) : false
+                    this.currentPage = this.pagesID['greeting']
                 })
                 .catch(error => `Error while loading Registration Module ${error}.`)
         }

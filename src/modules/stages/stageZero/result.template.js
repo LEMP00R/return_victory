@@ -1,9 +1,8 @@
-export const Result = `
-<section class="result">
+export const ResultTemplate = model => `
 	<h2 class="result__heading">Найкраша спеціальність для тебе - 
-		<a href="" class="link">Інженерія програмного забезпечення</a>
+		<span class="result__faculty">${model.result}</span>
 	</h2>
-	<p class="result__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus corporis repellendus natus, ut deserunt rerum omnis, veritatis cum, sit, possimus totam nam expedita eaque sed quia inventore similique aspernatur explicabo.</p>
+	<p class="result__text">${model.description}</p>
 	<select name="profession" class="result__professions">
 		<option>Backend</option>
 		<option>QA</option>
@@ -13,5 +12,4 @@ export const Result = `
 	<div class="result__submit">
 		<input type="submit" value="Далі" id="result-next-btn" class="button"/>
 	</div>
-</section>
 `

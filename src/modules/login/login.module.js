@@ -7,10 +7,10 @@ import { SignInUser } from '../../js/login/sign-in-user'
 
 export const Login = {
     
-    init(currentPage, previousPage, bodyElements) {
+    init(currentPage, previousPage, bodyElements, main) {
     	this.page = document.getElementById('login') 
     	RegistrationLink.init(this.render(this.page, currentPage === this.page))
-        SignInUser.init(previousPage, bodyElements)
+        SignInUser.init(previousPage, bodyElements, main)
         Facebook.init(previousPage, bodyElements)
     },
     show(target) {
