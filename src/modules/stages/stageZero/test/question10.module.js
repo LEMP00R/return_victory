@@ -41,7 +41,6 @@ export const Question10 = {
                                      'CI' === r[0] ? 'Комп\'ютерна інженерія' :
                                      'ACIS' === r[0] ? 'Автоматизація та коп’ютерно-інтегровані технології' : false 
                 
-                console.log(main)
                 this.target.innerHTML += ResultTemplate({result: resultName, description: d[r[0]]})
                 this.slideOut(this.target, this.element)
                 Result.init(main)

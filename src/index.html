@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ua">
 <head>
-	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Author: return_victory;, Length: 1 page">
     <title>Моя майбутня професія</title>
@@ -228,7 +228,7 @@
 
 		.banner__name {
 			font-family: RubikBold, Helvetica, Arial, sans-serif;
-			font-size: 32px;
+			font-size: 28px;
 			color: #2e384d;
 		}
 
@@ -424,12 +424,118 @@
 		
 		/*section quest-map*/
 		.quest-map {
-			padding-top: 20px;
+			position: relative;
+			width: 100%;
+			padding: 20px 0 20px 150px;
+			cursor: pointer;
+		}
+
+		.quest-map:hover:after {
+			z-index: -10;
+		}
+
+		.quest-map:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, .5);
 		}
 
 		.quest-map__content {
-			height: 300px;
-			background-color: rgba(0, 0, 0, .5);
+			height: 350px;
+		}
+
+		.quest-map__content>img {
+			width: calc((100% - 100px)/22);
+			max-height: 90px;
+			cursor: pointer;
+		}
+
+		.quest-map__content img:last-child {
+			width: 10%;
+		}
+
+		.quest-map__content img:nth-of-type(2) {
+		 	transform: rotate(10deg) translateY(35px);
+		}
+
+		.quest-map__content img:nth-of-type(3) {
+			transform: translate(-10px, 80px) rotate(180deg);
+		}
+
+		.quest-map__content img:nth-of-type(4) {
+			transform: translate(-10px, 85px);
+		}
+
+		.quest-map__content img:nth-of-type(5) {
+			transform: translate(-10px, 120px);
+		}
+
+		.quest-map__content img:nth-of-type(6) {
+			transform: translate(-10px, 160px) rotate(180deg);
+		}
+
+		.quest-map__content img:nth-of-type(7) {
+			transform: translateY(165px) rotate(110deg);
+		}
+
+		.quest-map__content img:nth-of-type(8) {
+			transform: translate(-10px, 120px);
+		}
+
+		.quest-map__content img:nth-of-type(9) {
+			transform: translate(-10px, 100px) rotate(-60deg);
+		}
+
+		.quest-map__content img:nth-of-type(10) {
+			transform: translateY(110px);
+		}
+
+		.quest-map__content img:nth-of-type(11) {
+			transform: translate(-30px, 165px) rotate(60deg);
+		}
+
+		.quest-map__content img:nth-of-type(12) {
+			transform: translate(-85px, 230px) rotate(-130deg);
+		}
+
+		.quest-map__content img:nth-of-type(13) {
+			transform: translate(-90px, 250px);
+		}
+
+		.quest-map__content img:nth-of-type(14) {
+			transform: translate(-95px, 230px) rotate(55deg);
+		}
+
+		.quest-map__content img:nth-of-type(15) {
+			transform: translate(-140px, 165px) rotate(-120deg);
+		}
+
+		.quest-map__content img:nth-of-type(16) {
+			transform: translate(-160px, 105px) rotate(80deg);
+		}
+
+		.quest-map__content img:nth-of-type(17) {
+			transform: translate(-180px, 45px) rotate(-90deg);
+		}
+
+		.quest-map__content img:nth-of-type(18) {
+			transform: translate(-180px, 10px);
+		}
+
+		.quest-map__content img:nth-of-type(19) {
+			transform: translate(-180px, 40px);
+		}
+
+		.quest-map__content img:nth-of-type(20) {
+			transform: translate(-180px, 90px) rotate(180deg);
+		}
+
+		.quest-map__content img:nth-of-type(21) {
+			transform: translate(-180px, 135px);
 		}
 
 		/*section lets-start*/
@@ -490,7 +596,7 @@
 	<div class="wrapper">
 	<section class="banner">
 		<div class='banner__logo'>
-			<h2 class="banner__name">Quest title</h2>
+			<h2 class="banner__name">Моя майбутня професія</h2>
 			<div class="banner__img">
 				<img src="/static/icons/logo.png" alt="Square academic cap">
 			</div>
@@ -589,7 +695,29 @@
 					</div>
 				</section>
 				<section class='quest-map'>
-					<div class="quest-map__content"></div>
+					<div class="quest-map__content">
+						<img src="../../static/icons/location.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/location.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/location.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/location.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/location.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/path.svg" alt="" />
+						<img src="../../static/icons/finish.svg" alt="" />
+					</div>
 				</section>
 				<section class='lets-start'>
 					<h2 class="lets-start__heading">Хочеш влаштуватися на роботу мрії?</h2>
@@ -612,6 +740,8 @@
 			<section id="greeting" class="greeting page slide--out"></section>
 			<section id="test" class="test page slide--out"></section>
 			<section id="result" class="result page slide--out"></section>
+			<section id="common-info" class="common-info page slide--out"></section>
+			<section id="study-content" class="study-content page slide--out"></section>
 		</div>
 	</main>
 	<footer class="site-footer">

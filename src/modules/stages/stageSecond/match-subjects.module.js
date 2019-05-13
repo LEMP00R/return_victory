@@ -1,0 +1,1 @@
+import { MatchSubjectsTemplate } from './match-subjects.template'
