@@ -1,6 +1,7 @@
 import '../../../styles/sections/stageZero/result.scss'
 
 import { CommonInfo } from '../stageFirst/common-info.module'
+import { CommonInfoTemplate } from '../stageFirst/common-info.template'
 
 export const Result = {
 	init(main) {
@@ -15,6 +16,7 @@ export const Result = {
 		this.submit.addEventListener('click', event => {
 			event.preventDefault()
 			
+			this.target.innerHTML += CommonInfoTemplate
 			this.slideOut(this.target, this.element)
 			CommonInfo.init(main)
 		})

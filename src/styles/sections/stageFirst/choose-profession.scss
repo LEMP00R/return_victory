@@ -1,0 +1,40 @@
+.choose-profession__scroll-down {
+			display: flex;
+			align-items: center;
+			margin: 50px 0;
+		}
+
+		.choose-profession__scroll-down span {
+			color: #2e384d;
+		}
+
+		.mouse {
+			position: relative;
+			margin-right: 20px;
+		}
+
+		.mouse img {
+			width: 40px;
+			max-height: 50px;
+		}
+
+		picture:after {
+			content: "\2193";
+			display: inline-block;
+			position: absolute;
+			top: 25%;
+			transform: scale(1.5);
+			color: #8798ad;
+		}
+
+		.choose-profession__img {
+			width: 100%;
+			height: 100%;
+			background-color: #d5deff;
+			object-fit: cover;
+		}
+
+		.choose-profession__img {
+			width: 100%;
+			height: 100%;
+		}
