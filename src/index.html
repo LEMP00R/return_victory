@@ -26,9 +26,6 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="/static/favicon/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-	<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-		<link rel="stylesheets" href="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>">
-	<% } %>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -134,7 +131,7 @@
 
 		.content-container  {
 			width: 100%;
-			min-height: calc(100vh - 140px);
+			min-height: calc(100vh - 190px);
 			border-left: 1px solid #dfe7ff;
 			padding: 70px;
         }
@@ -426,13 +423,8 @@
 		.quest-map {
 			position: relative;
 			width: 100%;
-			padding: 20px 0 20px 150px;
 			cursor: pointer;
 		}
-
-		/*.quest-map:hover:after {
-			z-index: -10;
-		}*/
 
 		.quest-map:after {
 			content: '';
@@ -441,101 +433,14 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background-color: rgba(0, 0, 0, .5);
+			z-index: 10;
+			background-color: rgba(0, 0, 0, .3);
 		}
 
-		.quest-map__content {
-			height: 350px;
-		}
-
-		.quest-map__content>img {
-			width: calc((100% - 100px)/22);
-			max-height: 90px;
-			cursor: pointer;
-		}
-
-		.quest-map__content img:last-child {
-			width: 10%;
-		}
-
-		.quest-map__content img:nth-of-type(2) {
-		 	transform: rotate(10deg) translateY(35px);
-		}
-
-		.quest-map__content img:nth-of-type(3) {
-			transform: translate(-10px, 80px) rotate(180deg);
-		}
-
-		.quest-map__content img:nth-of-type(4) {
-			transform: translate(-10px, 85px);
-		}
-
-		.quest-map__content img:nth-of-type(5) {
-			transform: translate(-10px, 120px);
-		}
-
-		.quest-map__content img:nth-of-type(6) {
-			transform: translate(-10px, 160px) rotate(180deg);
-		}
-
-		.quest-map__content img:nth-of-type(7) {
-			transform: translateY(165px) rotate(110deg);
-		}
-
-		.quest-map__content img:nth-of-type(8) {
-			transform: translate(-10px, 120px);
-		}
-
-		.quest-map__content img:nth-of-type(9) {
-			transform: translate(-10px, 100px) rotate(-60deg);
-		}
-
-		.quest-map__content img:nth-of-type(10) {
-			transform: translateY(110px);
-		}
-
-		.quest-map__content img:nth-of-type(11) {
-			transform: translate(-30px, 165px) rotate(60deg);
-		}
-
-		.quest-map__content img:nth-of-type(12) {
-			transform: translate(-85px, 230px) rotate(-130deg);
-		}
-
-		.quest-map__content img:nth-of-type(13) {
-			transform: translate(-90px, 250px);
-		}
-
-		.quest-map__content img:nth-of-type(14) {
-			transform: translate(-95px, 230px) rotate(55deg);
-		}
-
-		.quest-map__content img:nth-of-type(15) {
-			transform: translate(-140px, 165px) rotate(-120deg);
-		}
-
-		.quest-map__content img:nth-of-type(16) {
-			transform: translate(-160px, 105px) rotate(80deg);
-		}
-
-		.quest-map__content img:nth-of-type(17) {
-			transform: translate(-180px, 45px) rotate(-90deg);
-		}
-
-		.quest-map__content img:nth-of-type(18) {
-			transform: translate(-180px, 10px);
-		}
-
-		.quest-map__content img:nth-of-type(19) {
-			transform: translate(-180px, 40px);
-		}
-
-		.quest-map__content img:nth-of-type(20) {
-			transform: translate(-180px, 90px) rotate(180deg);
-		}
-
-		.quest-map__content img:nth-of-type(21) {
-			transform: translate(-180px, 135px);
+		.quest-map>img {
+			width: 100%;
+			padding: 10px 30px;
+			object-fit: cover;
 		}
 
 		/*section lets-start*/
@@ -694,34 +599,12 @@
 					</div>
 				</section>
 				<section class='quest-map'>
-					<div class="quest-map__content">
-						<img src="../../static/icons/location.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/location.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/location.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/location.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/location.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/path.svg" alt="" />
-						<img src="../../static/icons/finish.svg" alt="" />
-					</div>
+					<img src="/static/images/map.png" alt="map" />
 				</section>
 				<section class='lets-start'>
 					<h2 class="lets-start__heading">Хочеш влаштуватися на роботу мрії?</h2>
 					<p class='lets-start__text'>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim voluptates porro voluptas. Vitae aliquid earum ex quo assumenda voluptates doloremque ea dolores maxime error suscipit exercitationem impedit, asperiores neque, nostrum.
+						Не зволікай, реєструйся зараз та отримуй море корисної інформаці щодо вибору спеціальності, вибору майбутньої професії, влаштування на роботу мрії та багато іншого!
 					</p>
 					<div class="sign-block sign-block--bottom">
 						<input data-target="registration" class='button' type="button" value="Зареєструватися"/>

@@ -1,7 +1,7 @@
 import { ResultTemplate } from './result.template'
 
 export const Result = {
-	init() {
-
+	init(main) {
+		console.log(main)
 	}
 }

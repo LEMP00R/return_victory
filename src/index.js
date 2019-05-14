@@ -3,7 +3,6 @@ if(localStorage) {
 }
 
 const Main = {
-
     currentMenuItem: null,
     currentPage: null,
     previousPage: null,

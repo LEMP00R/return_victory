@@ -4,21 +4,21 @@ import { CommonInfo } from '../stageFirst/common-info.module'
 import { CommonInfoTemplate } from '../stageFirst/common-info.template'
 
 export const Result = {
-	init(main) {
+	init(main, result) {
 		main.currentPage = main.pagesID['result']
 		this.element = document.getElementById('result')
 		this.submit = $(this.element).find('.button')[0]
 		this.target = $('#common-info')[0]
 
-		this.initEvents(main)
+		this.initEvents(main, result)
 	},
-	initEvents(main) {
+	initEvents(main, result) {
 		this.submit.addEventListener('click', event => {
 			event.preventDefault()
 			
 			this.target.innerHTML += CommonInfoTemplate
 			this.slideOut(this.target, this.element)
-			CommonInfo.init(main)
+			CommonInfo.init(main, result)
 		})
 	},
     slideIn(target) {

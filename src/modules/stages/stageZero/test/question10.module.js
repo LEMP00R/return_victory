@@ -43,7 +43,7 @@ export const Question10 = {
                 
                 this.target.innerHTML += ResultTemplate({result: resultName, description: d[r[0]]})
                 this.slideOut(this.target, this.element)
-                Result.init(main)
+                Result.init(main, {result: resultName, description: d[r[0]]})
             }
         })
 
