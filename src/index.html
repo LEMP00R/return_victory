@@ -28,7 +28,8 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script async defer src="https://apis.google.com/js/platform.js"></script>
+    
     <style>
     	@font-face{
     		font-family: Rubik;
@@ -66,7 +67,6 @@
 
 		body {
 			width: 100%;
-			height: 100%;
 			max-width: 1400px;
 			margin: 0;
 			padding: 0;
@@ -89,7 +89,7 @@
 			box-sizing: inherit;
 		}
 
-		h1, h2, h3, h4, h5, h6, h7 {
+		h1, h2, h3, h4, h5, h6 {
 			margin: 0;
 			padding: 0;
 			font-family: 'RubikBold', Helvetica, Arial, sans-serif;
@@ -191,22 +191,51 @@
 			cursor: pointer;
 		}
 
-		@keyframes bounce { 
-            0%, 20%, 50%, 100% {
-            	transform: translateX(0);
-            } 
-            40% {
-            	transform: translateX(-160px);
-            } 
-            60% {
-            	transform: translateX(-90px);
-            } 
-			80% {
-				transform: translateX(-2px);
+		@media screen and (max-width: 1130px) and (min-width: 769px) {
+			h1 {
+	    		font-size: 46px;
 			}
-        }
+		}
+
+		@media screen and (min-width: 769px) and (max-width: 1024px) {
+			.wrapper {
+				display: block;
+			}
+
+			h1 {
+	    		font-size: 42px;
+			}
+
+			.content-container  {
+				margin: 60px 0;
+				padding: 0 60px;
+			}
+		}
+
+
+
+		@media screen and (max-width: 768px) {
+			.wrapper {
+	    		display: flex;
+	    		flex-direction: column;
+			}
+
+			h1 {
+	    		font-size: 38px;
+			}
+
+			.content-container  {
+				margin: 40px 0;
+				padding: 0 30px;
+			}
+
+			.home>section:not(:last-child) {
+	        	margin-bottom: 40px;
+	        }
+		}
 		
-		/*header top*/
+		/* header top */
+
 		.banner {
 			grid-column: span 2;
 			display: flex;
@@ -224,9 +253,21 @@
 		}
 
 		.banner__name {
+			display: flex;
+			align-items: center;
 			font-family: RubikBold, Helvetica, Arial, sans-serif;
-			font-size: 28px;
+			position: relative;
+			width: 260px;
+			font-size: 32px;
+			letter-spacing: 2px;
 			color: #2e384d;
+		}
+
+		.banner__name img {
+			position: absolute;
+			width: 60px;
+			top: 42px;
+			right: 22px;
 		}
 
 		.sign-block--right {
@@ -251,8 +292,65 @@
 			font-size: 16px;
 			color: #8798ad;
 		}
+
+		@media screen and (max-width: 1024px) {
+			.banner {
+				padding: 60px;
+			}
+		}
+
+		@media screen and (max-width: 768px) {
+			.banner {
+				padding: 30px;
+			}
+		}
+
+		@media screen and (max-width: 768px) and (min-width: 320px) {
+			.banner {
+				display: flex;
+				height: auto;
+				flex-direction: column;
+				padding: 0 30px;
+				margin: 40px 0 0 0;
+				border-bottom: none;
+			}
+
+			.banner__logo {
+				justify-content: center;
+				width: 100%;
+				border-bottom: 1px solid #dfe7ff;
+				padding-bottom: 30px;
+			}
+
+			.banner__name {
+				position: relative;
+				width: 260px;
+				font-size: 32px;
+				letter-spacing: 2px;
+			}
+
+			.banner__name img {
+				position: absolute;
+				width: 60px;
+				top: 42px;
+				right: 22px;
+			}
+
+			.sign-block--right {
+				display: flex;
+				flex-direction: column;
+				margin-left: 0;
+				padding-top: 30px;
+				text-align: center;
+			}
+
+			.sign-block--right>span {
+				margin-bottom: 10px;
+			}
+		}
 		
-		/*header left*/
+		/* header left */
+
 		.site-header {
 			position: sticky;
 			top: 0;
@@ -260,6 +358,12 @@
 			left: 0;
 			width: 140px;
 			height: calc(100vh - 140px);
+		}
+
+		@media screen and (max-width: 1024px) {
+			.site-header {
+				display: none;
+			}
 		}
 
 		.navbar {
@@ -347,7 +451,42 @@
         	color: #2e384d;
         }
 
-		/* SECTION INTRO */
+        /* Mobile header */
+
+        .mobile-header {
+        	position: sticky;
+			top: 0;
+			left: 0;
+			right: 0;
+        	width: 100%;
+        	z-index: 100;
+        	background-color: #2e5bff;
+        } 
+
+        .mobile-header__hamburger {
+        	padding: 15px;
+		    cursor: pointer;
+		 }
+
+		.mobile-header__line {
+		    width: 35px;
+		    height: 4px;
+		    border-radius: 10px;
+		    background-color: white;
+		}
+
+		.mobile-header__line:not(:last-of-type) {
+			margin-bottom: 7px;
+		}
+
+		@media screen and (min-width: 1025px) {
+			.mobile-header {
+				display: none;
+			}
+		}
+
+		/* section intro */
+
 		.intro {
 			display: flex;
 			align-items: center;
@@ -363,7 +502,7 @@
 		    position: absolute;
 		    bottom: 0;
 			z-index: -1;
-		    width: 50%; 
+		    width: 200px; 
 		    height: 50px;
 		    background: #eff2ff;
 		}
@@ -374,8 +513,88 @@
 		}
 
 		.intro__img {
+			top: -50px;
 			width: 40%;
+			z-index: -50;
 			object-fit: contain;
+		}
+
+		@media screen and (max-width: 1130px) and (min-width: 769px) {
+
+			.intro__text {
+				padding-right: 350px;
+				margin: 0;
+			}
+
+			.intro__heading {
+				padding-right: 200px;
+			}
+
+			.intro .sign-block {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.intro .sign-block .button {
+				margin-bottom: 10px;
+			}
+
+			.intro__img {
+				position: absolute;
+				top: -50px;
+				right: -30px;
+				width: 370px;
+			}
+		}
+
+		@media screen and (min-width: 426px) and (max-width: 768px) {
+
+			.intro>div {
+				order: 2;
+			}
+
+			.intro__img {
+				order: 1;
+				width: 400px;
+				margin-bottom: 50px;
+			}
+		}
+
+		@media screen and (max-width: 425px) {
+			.intro__img {
+				width: 100%;
+				margin-top: 30px;
+			}
+		}
+
+		@media screen and (max-width: 768px) and (min-width: 320px) {
+
+			.intro {
+				flex-direction: column;
+				margin-bottom: 20px;
+			}
+
+			.intro__heading:before {
+				width: 230px;
+			}
+
+			.intro__heading {
+				padding: 0;
+			}
+
+			.intro__text {
+				padding: 0;
+			}
+
+			.intro .sign-block {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.intro .sign-block .button {
+				margin-bottom: 10px;
+			}
 		}
 
 		/*section opportunities*/
@@ -418,8 +637,44 @@
 			object-fit: contain;
 		}
 
+		@media screen and (max-width: 768px) and (min-width: 426px) {
+			.opportunities {
+				display: flex;
+				flex-wrap: wrap;
+			}
+
+			.opportunities__item:not(.opportunities__heading) {
+				width: 50%;
+				padding: 20px 10px;
+			}
+		}
+
+		@media screen and (max-width: 768px) and (min-width: 320px) {
+			.opportunities {
+				display: flex;
+				flex-direction: column;
+				margin-left: -30px;
+				margin-right: -30px;
+			}
+
+			.opportunities__item:not(.opportunities__heading) {
+				align-items: flex-start;
+				width: 100%;
+				padding: 15px 10px 15px 20px;
+			}
+
+			.opportunities__heading {
+				padding: 50px 30px 30px 30px; 
+				text-align: center;
+			}
+
+			.opportunities__item>img {
+				width: 48px;
+			}
+		}
 		
-		/*section quest-map*/
+		/* section quest-map */
+
 		.quest-map {
 			position: relative;
 			width: 100%;
@@ -443,11 +698,33 @@
 			object-fit: cover;
 		}
 
-		/*section lets-start*/
+		@media screen and (max-width: 768px) and (min-width: 320px) {
+			.quest-map {
+				width: 100vw;
+				margin-left: -30px;
+				margin-right: -30px;
+			}
+
+			.quest-map:after {
+				right: 0;
+				bottom: 0;
+			}
+
+			.quest-map>img {
+				padding: 40px 10px;
+			}
+		}
+
+		/* section lets-start */
+
 		.lets-start {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+		}
+
+		.lets-start__heading {
+			text-align: center;
 		}
 
 		.lets-start__text {
@@ -465,7 +742,14 @@
 			padding-top: 10px;
 		}
 
-		/*footer*/
+		@media screen and (max-width: 768px) { 
+			.lets-start__text {
+				width: 90%;
+			}
+		}
+
+		/* footer */
+
 		.site-footer {
 			grid-column: span 2;
 			display: grid;
@@ -490,9 +774,44 @@
 		.site-footer__author {
 			margin-left: auto;
 		}
+
+		@media screen and (max-width: 1024px) {
+			.site-footer {
+				height: auto;
+				padding: 30px 60px;
+			}
+
+			.site-footer__socials-items {
+				margin: 15px 0;
+				margin-left: 0;
+			}
+		}
+
+		@media screen and (max-width: 768px) { 
+			.site-footer {
+				display: flex;
+				flex-direction: column;
+				padding: 30px 0 30px 0;
+			}
+
+			.site-footer__socials-item {
+				margin: 0 30px;
+			}
+
+			.site-footer__author {
+				margin-left: 0;
+			}
+		}
     </style>
 </head>
 <body>
+	<header class="mobile-header">
+		<div class="mobile-header__hamburger">
+            <div class="mobile-header__line"></div>
+            <div class="mobile-header__line"></div>
+            <div class="mobile-header__line"></div>
+        </div>
+	</header>
 	<div class="container-for-login-registration slide--out">
 		<section id='login' class='login page slide--out'></section>
 		<section id='registration' class='registration page slide--out'></section>
@@ -500,10 +819,9 @@
 	<div class="wrapper">
 	<section class="banner">
 		<div class='banner__logo'>
-			<h2 class="banner__name">Моя майбутня професія</h2>
-			<div class="banner__img">
+			<h2 class="banner__name">Моя майбутня професія
 				<img src="/static/icons/logo.png" alt="Square academic cap">
-			</div>
+			</h2>
 		</div>
 		<div class="logout hide">
 			<span>Вітаємо,</span>
@@ -559,7 +877,6 @@
 	<main class="site-main-content">
 		<div class="content-container">
 			<section id="home" class="home page slide--out">
-				<div id="status"></div>
 				<section class='intro'>
 					<div>
 						<h1 class='intro__heading'>Знайди свою ідеальну професію</h1>
@@ -626,6 +943,7 @@
 			<section id="study-content" class="study-content page slide--out"></section>
 			<section id="choose-profession" class="choose-profession page slide--out"></section>
 			<section id="result1" class="result1 page slide--out"></section>
+			<section id="subjects" class="subjects page slide--out"></section>
 		</div>
 	</main>
 	<footer class="site-footer">

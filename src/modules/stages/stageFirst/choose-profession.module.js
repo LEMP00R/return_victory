@@ -1,27 +1,35 @@
 import '../../../styles/sections/stageFirst/choose-profession.scss'
 
-import { ResultTemplate } from './result.template'
-import { Result } from './result.module'
+import { Result1Template } from './result.template'
+import { Result1 } from './result.module'
 
 export const ChooseProfession = {
 	init(main, result) {
-		main.currentPage = main.pagesID['result1']
+		main.currentPage = main.pagesID['choose-profession']
 		this.popup = $('.container-for-popup')[0]
 		this.popup.style.display = 'flex'
 		this.submit = $(this.popup).find('.button')[0]
 		this.target = document.getElementById('result1')
 
-		this.initEvents(main)
+		this.initEvents(main, result)
 	},
-	initEvents(main) {
+	initEvents(main, res) {
 		this.submit.addEventListener('click', event => {
 			event.preventDefault()
 			this.popup.style.display = 'none'
-			this.target.innerHTML += ResultTemplate
+			console.log(res)
+			this.target.innerHTML += Result1Template({
+				result: '51',
+				comments: [
+					{name: 'Олександр Бойко', comment: 'Дуже кльовий квест!', date: '14.05.2019'},
+					{name: 'Іванов Іван', comment: 'Дуже кльовий квест!', date: '14.05.2019'},
+					{name: 'Вишневський Дмитро', comment: 'Дуже кльовий квест!', date: '14.05.2019'}
+				]
+			})
 
 			this.slideOut(this.target, $('#choose-profession')[0])
 
-			Result.init(main)
+			Result1.init(main)
 		})
 	},
     slideIn(target) {
