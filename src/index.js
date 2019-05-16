@@ -1,6 +1,18 @@
-if(localStorage) {
-    console.log(localStorage)
+if(localStorage.getItem('user')) {
+    $('.sign-block--right')[0].remove()
+    $('[data-target="login"]').toArray().map(item => item.parentNode.remove())
+    $('[data-target="registration"]').toArray().map(item => item.remove())
+    document.querySelector('.logout').classList.remove('hide')
+    $('.logout__name')[0].innerHTML += localStorage.user
+} else {
+    $('.sign-block--right')[0].classList.remove('hide')
 }
+
+if(localStorage.getItem('pageID')) {
+    console.log(localStorage.pageID)
+}
+    
+
 
 const Main = {
     currentMenuItem: null,
@@ -16,15 +28,15 @@ const Main = {
     menuItems: $(".navbar__list-item").toArray(),
 
     init() {
-        this.initServiceWorker()
-        
         this.pagesID = this.pages.reduce((result, currentComponent) => {
             result[currentComponent.id] = currentComponent
             return result
         }, {})
 
+       
+
         this.initDefaultValues()
-        this.initEvents()
+        this.initEvents(this)
     },
     initDefaultValues() {
         this.currentMenuItem = this.menuItems[0]
@@ -36,7 +48,10 @@ const Main = {
 
         this.showView()
     },
-    initEvents() {
+    initEvents(main) {
+        window.onbeforeunload = function(e) {
+          localStorage.setItem('pageID', main.currentPage.id)
+        }
         this.menu.addEventListener("click", event => {
             console.log(this.currentPage)
             let tag = event.target.tagName
@@ -189,5 +204,6 @@ const Main = {
     }
 }
 
-Main.init()
 
+
+Main.init()

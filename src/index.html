@@ -9,9 +9,6 @@
     <link rel="manifest" href="/manifest.json">
 	<meta name="msapplication-config" content="/browserconfig.xml" />
 	<meta name="theme-color" content="#ffffff">
-	<meta name="google-signin-scope" content="profile email">
-	<meta name="google-signin-client_id" 
-		  content="925602732366-q1ld9hc42celr9sjqvl37cmedq10efvq.apps.googleusercontent.com">
     <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="/static/favicon/apple-icon-72x72.png">
@@ -28,8 +25,6 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/>
-	<script async defer src="https://apis.google.com/js/platform.js"></script>
-    
     <style>
     	@font-face{
     		font-family: Rubik;
@@ -342,6 +337,12 @@
 				margin-left: 0;
 				padding-top: 30px;
 				text-align: center;
+			}
+
+			.logout {
+				display: flex;
+				margin-left: 0;
+				padding-top: 30px;
 			}
 
 			.sign-block--right>span {
@@ -828,7 +829,7 @@
 			<span class="logout__name"></span>
 			<span data-target="logout" class="link link--grey">Вийти</span>
 		</div>
-		<div class="sign-block sign-block--right">
+		<div class="sign-block sign-block--right hide">
 			<span>
 				<span data-target="login" class="link">Увійти</span> або
 			</span>
