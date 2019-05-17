@@ -1,4 +1,5 @@
 export const LoginTemplate = `
+
       <div class="login__wrapper">
       <h2 class="login__heading">Вхід в систему</h2>
       <form id="login__form" class="login__form" name="login__form">

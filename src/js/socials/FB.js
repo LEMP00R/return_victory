@@ -1,17 +1,18 @@
 export const Facebook = {
-    init(previousPage, bodyElements) {
+    init(previousPage, bodyElements, main) {
+
         this.facebookLink = document.querySelector('.fa-facebook')
         this.initLib(document, 'script', 'facebook-jssdk', 'https://connect.facebook.net/uk_UA/sdk.js')
         this.initLib(document, 'script', 'facebook-jssdk-app', 'https://connect.facebook.net/uk_UA/sdk.js#xfbml=1&autoLogAppEvents=1&version=v3.3&appId=2377525005795732')
         
-        this.initEvents(previousPage, bodyElements)
+        this.initEvents(previousPage, bodyElements, main)
     },
-    initEvents(previousPage, bodyElements) {
+    initEvents(previousPage, bodyElements, main) {
         this.facebookLink.addEventListener('click', event => {
             event.preventDefault()
 
             this.initFB()
-            this.checkLoginState(previousPage, bodyElements)
+            this.checkLoginState(previousPage, bodyElements, main)
         })
     },
     initLib(d, s, id, src) {
@@ -32,7 +33,7 @@ export const Facebook = {
           version    : 'v3.3' 
         })
     },
-    checkLoginState(previousPage, bodyElements) {
+    checkLoginState(previousPage, bodyElements, main) {
         FB.login(function(response) {
           if (response.authResponse) {
              FB.api('/me', function(response) {
@@ -40,7 +41,7 @@ export const Facebook = {
                 import(  /* webpackChunkName: "greeting" */  `../../modules/stages/stageZero/greeting.module`)
                      .then(lazyModule => {
                         let greeting = lazyModule.Greeting
-                        greeting ? greeting.init(previousPage, bodyElements, response.name) : false
+                        greeting ? greeting.init(previousPage, bodyElements, response.name, main) : false
                      })
                      .catch(error => `Error while loading Greeting Module ${error}.`)
              })

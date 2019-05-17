@@ -25,10 +25,12 @@ export const Greeting = {
 
         this.previous = previousPage
         this.logout = Array.from(Array.from(this.target.children).filter(item => item.classList.contains('banner'))[0].children).filter(item => item.classList.contains('logout'))[0]
-        this.logout.classList.remove('hide')
-        Array.from(this.logout.children).filter(item => item.classList.contains('logout__name'))[0].innerHTML = data
-        Array.from(Array.from(this.target.children).filter(item => item.classList.contains('banner'))[0].children).filter(item => item.classList.contains('sign-block'))[0].classList.add('hide')
-        this.parent = Array.from(this.target.children).filter(item => item.classList.contains('site-main-content'))[0].firstElementChild
+        if (this.logout.classList.contains('hide')) {
+            this.logout.classList.remove('hide')
+            Array.from(this.logout.children).filter(item => item.classList.contains('logout__name'))[0].innerHTML = data
+            Array.from(Array.from(this.target.children).filter(item => item.classList.contains('banner'))[0].children).filter(item => item.classList.contains('sign-block'))[0].classList.add('hide')
+            this.parent = Array.from(this.target.children).filter(item => item.classList.contains('site-main-content'))[0].firstElementChild
+        }
         
 
     	this.slideOut(this.container, this.target, this.greeting, this.previous)

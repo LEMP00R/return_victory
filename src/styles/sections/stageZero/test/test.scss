@@ -19,7 +19,6 @@
 	.cbx {
 		display: flex;
 		width: auto;
-		align-items: center;
 		user-select: none;
 
 		span {
@@ -33,7 +32,6 @@
 		      height: 18px;
 		      border-radius: 3px;
 		      transform: scale(1);
-		      vertical-align: middle;
 		      border: 1px solid #9098A9;
 		      transition: all .2s ease;
 
